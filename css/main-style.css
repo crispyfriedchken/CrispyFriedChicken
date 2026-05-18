@@ -740,10 +740,8 @@ header h1 {
   height: 100%;
   object-fit: cover;
   object-position: center 40%;
-  /* Start a little desaturated so the overlay pops */
   filter: saturate(0.85) brightness(0.55);
   transform: scale(1.03);
-  transition: transform 8s ease;
 }
 
 /* Subtle slow zoom on load */
