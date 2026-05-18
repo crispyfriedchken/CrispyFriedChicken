@@ -1886,32 +1886,3 @@ header h1 {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--red-dark); }
-/* ══════════════════════════════════════════════════════════
-   RESPONSIVE ADDITIONS — main-style.css
-   ══════════════════════════════════════════════════════════ */
-
-/* Utility bar wraps on medium screens instead of hiding */
-@media (max-width: 860px) and (min-width: 601px) {
-    .utility-bar   { height: auto; padding: 6px 0; }
-    .utility-left  { gap: 12px; flex-wrap: wrap; }
-    .utility-tag   { font-size: 0.68rem; }
-}
-
-/* Nav: prevent overflow on mid-size screens */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .nav-link      { font-size: 0.73rem; padding: 7px 10px; }
-    .nav-cta       { padding: 8px 14px; font-size: 0.74rem; }
-    .nav-brand     { margin-right: 8px; }
-}
-
-/* Footer: 3 col on medium laptops */
-@media (max-width: 1100px) and (min-width: 769px) {
-    .footer-inner  { grid-template-columns: 1.5fr 1fr 1fr; }
-    .footer-brand  { grid-column: span 3; }
-}
-
-/* Ensure sticky nav doesn't clip content at top on very small phones */
-@media (max-width: 360px) {
-    :root { --nav-h: 54px; }
-    .nav-brand  { font-size: 0.95rem; }
-}

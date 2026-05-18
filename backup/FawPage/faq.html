@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - Crispy Fried Chicken</title>
+  <link rel="icon" type="image/svg+xml" href="flame.svg">
+  <!-- CSS LINKS -->
+  <link rel="stylesheet" href="css/main-style.css"> <!-- Reuse your main styles -->
+  <link rel="stylesheet" href="css/faq.css">  <!-- Specific styles for this page -->
+  
+  <!-- FONTS & ICONS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="utility-bar">
+    <div class="utility-bar-inner">
+      <div class="utility-left">
+        <span class="utility-tag">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter/X">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <ion-icon name="flame"></ion-icon>
+        CFC
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link"><ion-icon name="home-outline"></ion-icon>Home</a>
+        <a href="menu.html" class="nav-link"><ion-icon name="restaurant-outline"></ion-icon>Menu</a>
+        <a href="gallery.html" class="nav-link"><ion-icon name="images-outline"></ion-icon>Gallery</a>
+        <a href="reservation.html" class="nav-link"><ion-icon name="calendar-outline"></ion-icon>Reservation</a>
+        <a href="order.html" class="nav-link"><ion-icon name="bag-outline"></ion-icon>Order</a>
+        <a href="about.html" class="nav-link"><ion-icon name="people-outline"></ion-icon>About</a>
+        <a href="faq.html" class="nav-link active"><ion-icon name="help-circle-outline"></ion-icon>FAQ</a>
+      </div>
+      <a href="order.html" class="nav-cta"><ion-icon name="bag-outline"></ion-icon>Order Now</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="faq-page">
+    
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <div class="page-header-inner">
+        <span class="section-label">
+          <ion-icon name="help-circle-outline"></ion-icon>
+          Support
+        </span>
+        <h1>Frequently Asked Questions</h1>
+        <p class="section-desc">Everything you need to know about your visit, reservations, and our crispy offerings.</p>
+      </div>
+    </section>
+
+    <!-- FAQ GRID -->
+    <section class="faq-container">
+      
+      <!-- LEFT COLUMN: QUESTIONS -->
+      <div class="faq-col">
+        
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="time-outline"></ion-icon></span>
+            <span>What are your opening hours?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>We are open <strong>Monday through Sunday from 11:00 AM to 2:00 AM</strong>. We serve food until 1:00 AM.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="location-outline"></ion-icon></span>
+            <span>Where are you located?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>We are located at <strong>123 Flavor St, Party City</strong>. We have ample parking available in the rear lot.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="bag-outline"></ion-icon></span>
+            <span>Do you offer delivery services?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Yes! We offer islandwide delivery within selected areas. You can order directly through our website or via major delivery apps.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="calendar-outline"></ion-icon></span>
+            <span>Can I reserve a table online?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Absolutely. Reservations can be made through our <a href="reservation.html" style="color:var(--red); font-weight:600;">Reservation page</a>. We recommend booking at least 24 hours in advance for weekends.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="leaf-outline"></ion-icon></span>
+            <span>Do you have vegetarian options?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Yes! We offer a variety of vegetarian and vegan-friendly meals, including our signature plant-based tenders and loaded waffle fries.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="card-outline"></ion-icon></span>
+            <span>What payment methods do you accept?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>We accept cash, all major debit/credit cards (Visa, Mastercard, Amex), and online payments via Apple Pay and Google Pay.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="balloon-outline"></ion-icon></span>
+            <span>Do you host private events?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Yes, we host birthdays, anniversaries, corporate dinners, and special celebrations. Please contact our events team for custom packages.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap"><ion-icon name="call-outline"></ion-icon></span>
+            <span>How can I contact customer service?</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>You can call us directly at <strong>(555) 123-4567</strong> or email us at <strong>crispyfriedchken@gmail.com</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: QUICK INFO -->
+      <div class="faq-sidebar">
+        <div class="sidebar-card">
+          <h3>Still have questions?</h3>
+          <p>Our team is ready to help you plan your next meal.</p>
+          <a href="contact.html" class="btn btn-red" style="width:100%; justify-content:center; margin-top:12px;">
+            <ion-icon name="mail-outline"></ion-icon>
+            Contact Us
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Reservation Steps</h3>
+          <ol class="steps-list">
+            <li>Visit the Reservation page.</li>
+            <li>Enter your details.</li>
+            <li>Select date & time.</li>
+            <li>Choose seating preference.</li>
+            <li>Submit request.</li>
+          </ol>
+          <a href="reservation.html" class="btn btn-outline-dark" style="width:100%; justify-content:center; margin-top:12px;">
+            Book Now
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <ion-icon name="flame"></ion-icon>
+          <span>Crispy Fried Chicken</span>
+        </div>
+        <p>Fine dining meets bold flavor. Every meal is a celebration.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/crispyfriedchken/" class="social-link" target="_blank" aria-label="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a href="https://www.tiktok.com/@crispyfriedchken" class="social-link" target="_blank" aria-label="TikTok">
+            <ion-icon name="logo-tiktok"></ion-icon>
+          </a>
+          <a href="https://www.facebook.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="https://twitter.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Twitter">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="https://www.youtube.com/crispyfriedchken" class="social-link" target="_blank" aria-label="YouTube">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reservation.html">Reservation</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Experience</h4>
+        <a href="order.html">Online Order</a>
+        <a href="about.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="reservation.html">Private Events</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Contact</h4>
+        <a href="tel:5551234567">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </a>
+        <a href="mailto:crispyfriedchken@gmail.com">
+          <ion-icon name="mail-outline"></ion-icon>
+          crispyfriedchken@gmail.com
+        </a>
+        <a href="#">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </a>
+        <a href="#">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&#169; 2025 Crispy Fried Chicken &middot; Fine Dining &amp; Private Events</p>
+      <p>Made with <ion-icon name="heart" style="color:var(--red)"></ion-icon> and hot oil</p>
+    </div>
+  </footer>
+
+  <script src="js/faq.js"></script>
+</body>
+</html>

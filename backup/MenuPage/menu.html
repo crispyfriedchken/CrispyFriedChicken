@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu — Crispy Fried Chicken</title>
+    <link rel="icon" type="image/svg+xml" href="flame.svg">
+    <link rel="stylesheet" href="css/main-style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="utility-bar">
+    <div class="utility-bar-inner">
+      <div class="utility-left">
+        <span class="utility-tag">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter/X">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<!-- ══ MAIN NAV ════════════════════════════════════════════ -->
+<nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+            <ion-icon name="flame"></ion-icon>
+            CFC
+        </a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html"    class="nav-link"><ion-icon name="home-outline"></ion-icon> Home</a>
+            <a href="menu.html"     class="nav-link active"><ion-icon name="restaurant-outline"></ion-icon> Menu</a>
+            <a href="gallery.html"  class="nav-link"><ion-icon name="images-outline"></ion-icon> Gallery</a>
+            <a href="reservation.html" class="nav-link"><ion-icon name="calendar-outline"></ion-icon> Reservation</a>
+            <a href="order.html" class="nav-link"><ion-icon name="bag-outline"></ion-icon> Order</a>
+            <a href="about.html"    class="nav-link"><ion-icon name="people-outline"></ion-icon> About</a>
+            <a href="faq.html"      class="nav-link"><ion-icon name="help-circle-outline"></ion-icon> FAQ</a>
+        </div>
+        <a href="order.html" class="nav-cta">
+            <ion-icon name="bag-outline"></ion-icon> Order Now
+        </a>
+    </div>
+</nav>
+
+<!-- ══ MENU HERO ════════════════════════════════════════════ -->
+<div class="menu-hero">
+    <div class="menu-hero-inner">
+        <div class="menu-hero-badge">
+            <ion-icon name="restaurant-outline"></ion-icon>
+            Full Menu
+        </div>
+        <h1>What We're<br><em>Serving</em></h1>
+        <p>Fried fresh. Served hot. Made to order every single time.</p>
+    </div>
+    <div class="menu-hero-wave"></div>
+</div>
+
+<!-- ══ MENU MAIN ════════════════════════════════════════════ -->
+<main class="menu-main">
+
+    <!-- ── FILTER / CATEGORY TABS ──────────────────────── -->
+    <div class="menu-tabs-wrap">
+        <div class="menu-tabs" id="menuTabs">
+            <button class="mtab active" data-cat="all">
+                <ion-icon name="grid-outline"></ion-icon> All
+            </button>
+            <button class="mtab" data-cat="signatures">
+                <ion-icon name="star-outline"></ion-icon> Signatures
+            </button>
+            <button class="mtab" data-cat="wings">
+                <ion-icon name="flame-outline"></ion-icon> Wings
+            </button>
+            <button class="mtab" data-cat="combos">
+                <ion-icon name="fast-food-outline"></ion-icon> Combos
+            </button>
+            <button class="mtab" data-cat="sides">
+                <ion-icon name="leaf-outline"></ion-icon> Sides
+            </button>
+            <button class="mtab" data-cat="drinks">
+                <ion-icon name="wine-outline"></ion-icon> Drinks
+            </button>
+            <button class="mtab" data-cat="desserts">
+                <ion-icon name="ice-cream-outline"></ion-icon> Desserts
+            </button>
+        </div>
+
+        <!-- Search -->
+        <div class="menu-search">
+            <ion-icon name="search-outline"></ion-icon>
+            <input type="text" id="menuSearch" placeholder="Search menu..." autocomplete="off">
+        </div>
+    </div>
+
+    <!-- ── DIETARY FILTERS ─────────────────────────────── -->
+    <div class="diet-filters">
+        <span class="diet-label">Filter:</span>
+        <button class="dfilt active" data-diet="all">All</button>
+        <button class="dfilt" data-diet="spicy">
+            <span class="diet-dot spicy"></span> Spicy
+        </button>
+        <button class="dfilt" data-diet="new">
+            <span class="diet-dot new"></span> New
+        </button>
+        <button class="dfilt" data-diet="popular">
+            <span class="diet-dot popular"></span> Popular
+        </button>
+        <button class="dfilt" data-diet="veg">
+            <span class="diet-dot veg"></span> Veg-Friendly
+        </button>
+    </div>
+
+    <!-- ══ CATEGORY: SIGNATURES ════════════════════════════ -->
+    <section class="menu-section" data-section="signatures">
+        <div class="msec-head">
+            <div class="msec-icon"><ion-icon name="star-outline"></ion-icon></div>
+            <div>
+                <h2>Signatures</h2>
+                <p>Our most iconic, most-loved creations.</p>
+            </div>
+        </div>
+
+        <div class="menu-grid" id="gridSignatures">
+
+            <div class="menu-card" data-cat="signatures" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/menu_items/signatures/CrispyPopcornChicken.jpg" alt="Crispy Popcorn Chicken">
+                    <div class="mc-badge popular"><ion-icon name="star"></ion-icon> Popular</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Crispy Popcorn Chicken</h4>
+                        <span class="mc-price">$14.99</span>
+                    </div>
+                    <p>Our legendary golden-fried chicken breast, seasoned with 12 secret spices. Crispy outside, juicy inside — always.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag"><ion-icon name="restaurant-outline"></ion-icon> Chicken</span>
+                            <span class="mctag">House Special</span>
+                        </div>
+                        <button class="mc-add" aria-label="Add to order">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card" data-cat="signatures" data-tags="spicy popular">
+                <div class="mc-img">
+                    <img src="media/food/menu_items/signatures/HotFishNChickenBurger.jpg" alt="Hot Fish and Chicken Burger">
+                    <div class="mc-badge spicy"><ion-icon name="flame"></ion-icon> Spicy</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Hot Fish and Chicken Burger</h4>
+                        <span class="mc-price">$13.99</span>
+                    </div>
+                    <p>Crispy thigh fillet,Spicy Steam Fish, pickles, and slaw on a toasted brioche bun. Bring a drink.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag"><ion-icon name="flame-outline"></ion-icon> Hot</span>
+                            <span class="mctag">Sandwich</span>
+                        </div>
+                        <button class="mc-add" aria-label="Add to order">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card" data-cat="signatures" data-tags="spicy popular">
+                <div class="mc-img">
+                    <img src="media/food/menu_items/signatures/FireChickenSandwich.jpg" alt="Fire Chicken Sandwich">
+                    <div class="mc-badge spicy"><ion-icon name="flame"></ion-icon> Spicy</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Fire Chicken Sandwich</h4>
+                        <span class="mc-price">$13.99</span>
+                    </div>
+                    <p>Crispy thigh fillet, ghost pepper mayo, pickles, and slaw on a toasted brioche bun. Bring a drink.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag"><ion-icon name="flame-outline"></ion-icon> Hot</span>
+                            <span class="mctag">Sandwich</span>
+                        </div>
+                        <button class="mc-add" aria-label="Add to order">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="signatures" data-tags="new">
+                <div class="mc-img">
+                    <img src="media/food/menu_items/signatures/HoneyStarNuggets.jpg" alt="Honey Star Nuggets">
+                    <div class="mc-badge new"><ion-icon name="sparkles"></ion-icon> New</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Honey Star Nuggets</h4>
+                        <span class="mc-price">$11.99</span>
+                    </div>
+                    <p>Slow-honey cooked with crispy golden tenders. A sweet and savory combo that hits every time.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag"><ion-icon name="star-outline"></ion-icon> Sweet</span>
+                            <span class="mctag">Tenders</span>
+                        </div>
+                        <button class="mc-add" aria-label="Add to order">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="signatures" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/menu_items/signatures/PartyPlatter.jpg" alt="Party Platter">
+                    <div class="mc-badge party"><ion-icon name="people"></ion-icon> Party</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Party Platter</h4>
+                        <span class="mc-price">$44.99</span>
+                    </div>
+                    <p>Feeds 4–6 people. Mix of whole pieces, tenders, wings, and two large sides. The ultimate sharing platter.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">Serves 4–6</span>
+                            <span class="mctag">+ 2 Sides</span>
+                        </div>
+                        <button class="mc-add" aria-label="Add to order">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══ CATEGORY: WINGS ═════════════════════════════════ -->
+    <section class="menu-section" data-section="wings">
+        <div class="msec-head">
+            <div class="msec-icon"><ion-icon name="flame-outline"></ion-icon></div>
+            <div>
+                <h2>Wings</h2>
+                <p>Sauced, tossed, and never boring.</p>
+            </div>
+        </div>
+
+        <div class="menu-grid" id="gridWings">
+
+            <div class="menu-card" data-cat="wings" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/wings/ClassicWings.jpg" alt="Classic Wings">
+                    <div class="mc-badge popular"><ion-icon name="star"></ion-icon> Popular</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Classic Wings (16pc)</h4>
+                        <span class="mc-price">$10.99</span>
+                    </div>
+                    <p>Perfectly fried wings with your choice of Buffalo, BBQ, Honey Garlic, or Plain. Served with ranch or blue cheese.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">16 Pieces</span>
+                            <span class="mctag">Choice of Sauce</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="wings" data-tags="spicy">
+                <div class="mc-img">
+                    <img src="media/food/wings/NuclearWings.jpg" alt="Nuclear Wings">
+                    <div class="mc-badge spicy"><ion-icon name="flame"></ion-icon> Spicy</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Nuclear Wings (6pc)</h4>
+                        <span class="mc-price">$12.99</span>
+                    </div>
+                    <p>Coated in our nuclear hot sauce. Not for the faint-hearted. Sign the waiver — just kidding. Almost.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag"><ion-icon name="flame-outline"></ion-icon> Extreme</span>
+                            <span class="mctag">6 Pieces</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="wings" data-tags="new popular">
+                <div class="mc-img">
+                    <img src="media/food/wings/LemonPepperWings.jpg" alt="Lemon Pepper Wings">
+                    <div class="mc-badge new"><ion-icon name="sparkles"></ion-icon> New</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Lemon Pepper Wings (6pc)</h4>
+                        <span class="mc-price">$11.99</span>
+                    </div>
+                    <p>Zesty lemon pepper seasoning on crispy wings. Light, fragrant, and dangerously addictive.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag"><ion-icon name="sparkles-outline"></ion-icon> Tangy</span>
+                            <span class="mctag">6 Pieces</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="wings" data-tags="">
+                <div class="mc-img">
+                    <img src="media/food/wings/WingBucket.jpg" alt="Wing Bucket">
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Wing Bucket (24pc)</h4>
+                        <span class="mc-price">$36.99</span>
+                    </div>
+                    <p>The big one. 24 wings, three sauce choices, four dips, and endless good times. Perfect for the whole crew.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">Serves 3–4</span>
+                            <span class="mctag">3 Sauces</span>
+                            <span class="mctag">Plus Fries</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══ CATEGORY: COMBOS ════════════════════════════════ -->
+    <section class="menu-section" data-section="combos">
+        <div class="msec-head">
+            <div class="msec-icon"><ion-icon name="fast-food-outline"></ion-icon></div>
+            <div>
+                <h2>Combos</h2>
+                <p>The full meal. Protein, sides, and a drink — sorted.</p>
+            </div>
+        </div>
+
+        <div class="menu-grid" id="gridCombos">
+
+            <div class="menu-card wide" data-cat="combos" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/combos/CrispyCrownCombo.webp" alt="Crispy Crown Combo">
+                    <div class="mc-badge popular"><ion-icon name="star"></ion-icon> Popular</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Crispy Crown Combo</h4>
+                        <span class="mc-price">$49.99</span>
+                    </div>
+                    <p>5 Barbeue Chicken Burgers + Large Nacho Fries + 14 Onion Rings + fountain drink. The go-to for a reason.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">5 Burgers</span>
+                            <span class="mctag">Large Fries</span>
+                            <span class="mctag">Onion Rings</span>
+                            <span class="mctag">Drink</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card wide" data-cat="combos" data-tags="spicy popular">
+                <div class="mc-img">
+                    <img src="media/food/combos/DuoClassicCombo.jpg" alt="Duo Classic Combo">
+                    <div class="mc-badge party"><ion-icon name="people"></ion-icon> Family</div>
+                    <!--<div class="mc-badge spicy"><ion-icon name="flame"></ion-icon> Spicy</div>-->
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Duo Classic Combo</h4>
+                        <span class="mc-price">$15.99</span>
+                    </div>
+                    <p>Two Classic sandwiches + loaded fries + Nuggets + a large drink.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">Two Sandwiches</span>
+                            <span class="mctag">Loaded Fries</span>
+                            <span class="mctag">Nuggets</span>
+                            <span class="mctag">Large Drink</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card wide" data-cat="combos" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/combos/FamilyFeast.jpg" alt="Family Feast">
+                    <div class="mc-badge party"><ion-icon name="people"></ion-icon> Family</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Family Feast</h4>
+                        <span class="mc-price">$94.99</span>
+                    </div>
+                    <p>9 Large Fries + 20 large Burgers + 44 drinks. The whole family's sorted in one order.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">Serves 4–5</span>
+                            <span class="mctag">9 Large Fries</span>
+                            <span class="mctag">20 Large Burgers</span>
+                            <span class="mctag">44 Large Drinks</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card wide" data-cat="combos" data-tags="new">
+                <div class="mc-img">
+                    <img src="media/food/combos/TenderCombo.webp" alt="Tender Combo">
+                    <div class="mc-badge new"><ion-icon name="sparkles"></ion-icon> New</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Tender Combo</h4>
+                        <span class="mc-price">$14.49</span>
+                    </div>
+                    <p>58 honey glazed tenders + a drink. Sweet, savory, and fully loaded.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags">
+                            <span class="mctag">58 Tenders</span>
+                            <span class="mctag">Drink</span>
+                        </div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══ CATEGORY: SIDES ═════════════════════════════════ -->
+    <section class="menu-section" data-section="sides">
+        <div class="msec-head">
+            <div class="msec-icon"><ion-icon name="leaf-outline"></ion-icon></div>
+            <div>
+                <h2>Sides</h2>
+                <p>Because every great meal needs great backup.</p>
+            </div>
+        </div>
+
+        <!-- Sides use a list-style layout -->
+        <div class="sides-grid" id="gridSides">
+
+            <div class="side-card" data-cat="sides" data-tags="popular veg">
+                <div class="side-img">
+                    <img src="media/food/sides/SeasonedFries.webp" alt="Seasoned Fries">
+                </div>
+                <div class="side-body">
+                    <div class="side-top">
+                        <h4>Seasoned Fries</h4>
+                        <div class="side-sizes">
+                            <span class="sz active">Reg $3.99</span>
+                            <span class="sz">Lg $5.49</span>
+                        </div>
+                    </div>
+                    <p>Skin-on fries tossed in our house seasoning blend. Crispy, golden, addictive.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="leaf-outline"></ion-icon> Veg</span><span class="mctag">Popular</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-card" data-cat="sides" data-tags="veg popular">
+                <div class="side-img">
+                    <img src="media/food/sides/MacNCheeseBites.webp" alt="Mac & Cheese">
+                </div>
+                <div class="side-body">
+                    <div class="side-top">
+                        <h4>Mac & Cheese</h4>
+                        <div class="side-sizes">
+                            <span class="sz active">Reg $4.49</span>
+                            <span class="sz">Lg $6.49</span>
+                        </div>
+                    </div>
+                    <p>Creamy, cheesy, baked to a golden crust on top. Comfort in a bowl.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="pizza-outline"></ion-icon> Cheese</span><span class="mctag">Veg</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-card" data-cat="sides" data-tags="spicy new">
+                <div class="side-img">
+                    <img src="media/food/sides/SpicyPotatoSlides.webp" alt="Spicy Potato Slides">
+                </div>
+                <div class="side-body">
+                    <div class="side-top">
+                        <h4>Spicy Potato Slides</h4>
+                        <div class="side-sizes">
+                            <span class="sz active">$7.99</span>
+                        </div>
+                    </div>
+                    <p>Seasoned fried potato slices piled with cheese flakes, jalapeños, crispy bacon bits, and ranch drizzle.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="flame-outline"></ion-icon> Spicy</span><span class="mctag">New</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-card" data-cat="sides" data-tags="veg">
+                <div class="side-img">
+                    <img src="media/food/sides/SweetNSourColeSlaw.jpg" alt="Coleslaw">
+                </div>
+                <div class="side-body">
+                    <div class="side-top">
+                        <h4>Sweet N Sour Coleslaw</h4>
+                        <div class="side-sizes">
+                            <span class="sz active">Reg $2.99</span>
+                            <span class="sz">Lg $4.49</span>
+                        </div>
+                    </div>
+                    <p>Fresh shredded cabbage and carrots in a creamy, tangy dressing. The perfect cool contrast.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="leaf-outline"></ion-icon> Veg</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="side-card" data-cat="sides" data-tags="veg popular">
+                <div class="side-img">
+                    <img src="media/food/sides/HoneyCornbread.jpg" alt="Cornbread">
+                </div>
+                <div class="side-body">
+                    <div class="side-top">
+                        <h4>Honey Cornbread</h4>
+                        <div class="side-sizes">
+                            <span class="sz active">$3.49</span>
+                        </div>
+                    </div>
+                    <p>Fluffy, golden cornbread baked fresh daily with a honey butter glaze on top.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="star-outline"></ion-icon> Sweet</span><span class="mctag">Veg</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="side-card" data-cat="sides" data-tags="veg" just keep this removed for now since we don't have a good image for it yet>
+                <div class="side-img">
+                    <img src="media/food2.jpg" alt="Gravy">
+                </div>
+                <div class="side-body">
+                    <div class="side-top">
+                        <h4>Pepper Gravy</h4>
+                        <div class="side-sizes">
+                            <span class="sz active">$1.99</span>
+                        </div>
+                    </div>
+                    <p>Rich, peppery house-made gravy. Pour it on everything. Seriously, everything.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag">Dip / Pour</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+    </section>
+
+    <!-- ══ CATEGORY: DRINKS ════════════════════════════════ -->
+    <section class="menu-section" data-section="drinks">
+        <div class="msec-head">
+            <div class="msec-icon"><ion-icon name="wine-outline"></ion-icon></div>
+            <div>
+                <h2>Drinks</h2>
+                <p>Something cold to wash it all down.</p>
+            </div>
+        </div>
+
+        <div class="drinks-grid" id="gridDrinks">
+
+            <div class="drink-card" data-cat="drinks" data-tags="">
+                <div class="drink-icon"><ion-icon name="cafe-outline"></ion-icon></div>
+                <div class="drink-body">
+                    <h4>Fountain Drink</h4>
+                    <p>Coke, Diet Coke, Sprite, Lemonade, Sweet Tea</p>
+                    <div class="drink-prices">
+                        <span>Sm $1.99</span>
+                        <span>Med $2.49</span>
+                        <span>Lg $2.99</span>
+                    </div>
+                </div>
+                <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+
+            <div class="drink-card" data-cat="drinks" data-tags="new">
+                <div class="drink-icon red"><ion-icon name="wine-outline"></ion-icon></div>
+                <div class="drink-body">
+                    <h4>Watermelon Lemonade</h4>
+                    <p>Fresh watermelon juice blended with house lemonade. Seasonal and refreshing.</p>
+                    <div class="drink-prices">
+                        <span>Lg $4.49</span>
+                    </div>
+                </div>
+                <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+
+            <div class="drink-card" data-cat="drinks" data-tags="popular">
+                <div class="drink-icon"><ion-icon name="beer-outline"></ion-icon></div>
+                <div class="drink-body">
+                    <h4>Craft Beer (Bottle)</h4>
+                    <p>Rotating selection of local craft beers. Ask your server for today's options.</p>
+                    <div class="drink-prices">
+                        <span>$5.99</span>
+                    </div>
+                </div>
+                <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+
+            <div class="drink-card" data-cat="drinks" data-tags="popular">
+                <div class="drink-icon red"><ion-icon name="flame-outline"></ion-icon></div>
+                <div class="drink-body">
+                    <h4>Signature Red Slushie</h4>
+                    <p>Cherry and raspberry slushie with a hint of lime. A CFC exclusive.</p>
+                    <div class="drink-prices">
+                        <span>Med $3.49</span>
+                        <span>Lg $4.49</span>
+                    </div>
+                </div>
+                <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+
+            <div class="drink-card" data-cat="drinks" data-tags="">
+                <div class="drink-icon"><ion-icon name="water-outline"></ion-icon></div>
+                <div class="drink-body">
+                    <h4>Bottled Water</h4>
+                    <p>Still or sparkling.</p>
+                    <div class="drink-prices"><span>$1.49</span></div>
+                </div>
+                <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+
+            <div class="drink-card" data-cat="drinks" data-tags="new popular">
+                <div class="drink-icon red"><ion-icon name="sparkles-outline"></ion-icon></div>
+                <div class="drink-body">
+                    <h4>CFC Party Punch</h4>
+                    <p>Our signature non-alcoholic house punch. Tropical, sweet, and totally addictive.</p>
+                    <div class="drink-prices"><span>Lg $4.99</span></div>
+                </div>
+                <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══ CATEGORY: DESSERTS ══════════════════════════════ -->
+    <section class="menu-section" data-section="desserts">
+        <div class="msec-head">
+            <div class="msec-icon"><ion-icon name="ice-cream-outline"></ion-icon></div>
+            <div>
+                <h2>Desserts</h2>
+                <p>Finish strong. You've earned it.</p>
+            </div>
+        </div>
+
+        <div class="menu-grid" id="gridDesserts">
+
+            <div class="menu-card" data-cat="desserts" data-tags="popular new">
+                <div class="mc-img">
+                    <img src="media/food/dessert/FriedOreos.jpg" alt="Fried Oreos">
+                    <div class="mc-badge new"><ion-icon name="sparkles"></ion-icon> New</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Fried Oreos (5pc)</h4>
+                        <span class="mc-price">$6.99</span>
+                    </div>
+                    <p>Double-stuffed Oreos dipped in sweet batter, deep fried, and dusted with powdered sugar. Unreal.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="star-outline"></ion-icon> Sweet</span><span class="mctag">5 Pieces</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="desserts" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/dessert/BananaPuddingCup.jpg" alt="Banana Pudding">
+                    <div class="mc-badge popular"><ion-icon name="star"></ion-icon> Popular</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Banana Pudding Cup</h4>
+                        <span class="mc-price">$5.49</span>
+                    </div>
+                    <p>Layers of vanilla wafers, fresh banana slices, and creamy pudding. A Southern classic done right.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="leaf-outline"></ion-icon> Banana</span><span class="mctag">Veg</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="desserts" data-tags="">
+                <div class="mc-img">
+                    <img src="media/food/dessert/ChurroBite.png" alt="Churro Bites">
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Churro Bites</h4>
+                        <span class="mc-price">$5.99</span>
+                    </div>
+                    <p>Crispy fried churro bites rolled in cinnamon sugar, served with chocolate dipping sauce.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="cafe-outline"></ion-icon> Chocolate</span><span class="mctag">Shareable</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-cat="desserts" data-tags="popular">
+                <div class="mc-img">
+                    <img src="media/food/dessert/RedVelvetWaffle.jpg" alt="Red Velvet Waffle">
+                    <div class="mc-badge popular"><ion-icon name="star"></ion-icon> Popular</div>
+                </div>
+                <div class="mc-body">
+                    <div class="mc-top">
+                        <h4>Red Velvet Waffle</h4>
+                        <span class="mc-price">$7.99</span>
+                    </div>
+                    <p>Crispy red velvet waffle topped with cream cheese drizzle and powdered sugar. Dessert, elevated.</p>
+                    <div class="mc-foot">
+                        <div class="mc-tags"><span class="mctag"><ion-icon name="grid-outline"></ion-icon> Waffle</span><span class="mctag">Signature</span></div>
+                        <button class="mc-add"><ion-icon name="add-outline"></ion-icon></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── EMPTY STATE (shown when search/filter has no results) -->
+    <div class="menu-empty hidden" id="menuEmpty">
+        <ion-icon name="search-outline"></ion-icon>
+        <h3>Nothing found</h3>
+        <p>Try a different search term or clear your filters.</p>
+        <button class="btn-outline-m" id="clearFilters">Clear Filters</button>
+    </div>
+
+    <!-- ── ORDER CTA ────────────────────────────────────── -->
+    <section class="menu-order-cta">
+        <div class="moc-inner">
+            <div class="moc-text">
+                <h2>Ready to order?</h2>
+                <p>Place your order online for pickup or dine-in. Fast, easy, and always fresh.</p>
+            </div>
+            <div class="moc-btns">
+                <a href="order.html" class="btn-main-m">
+                    <ion-icon name="bag-outline"></ion-icon> Order Online
+                </a>
+                <a href="reservation.html" class="btn-sec-m">
+                    <ion-icon name="calendar-outline"></ion-icon> Book a Table
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <ion-icon name="flame"></ion-icon>
+                <span>Crispy Fried Chicken</span>
+            </div>
+            <p>Fine dining meets bold flavor. Every meal is a celebration.</p>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/crispyfriedchken/" class="social-link" target = "_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="https://www.tiktok.com/@crispyfriedchken" class="social-link" target="_blank" aria-label="TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
+                <a href="https://www.facebook.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="https://twitter.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="https://www.youtube.com/crispyfriedchken" class="social-link" target="_blank" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+            </div>
+        </div>
+        <div class="footer-links-group">
+            <h4>Navigate</h4>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="reservation.html">Reservation</a>
+        </div>
+        <div class="footer-links-group">
+            <h4>Experience</h4>
+            <a href="order.html">Online Order</a>
+            <a href="about.html">About Us</a>
+            <a href="faq.html">FAQ</a>
+            <a href="reservation.html">Private Events</a>
+        </div>
+        <div class="footer-links-group">
+            <h4>Contact</h4>
+            <a href="tel:5551234567"><ion-icon name="call-outline"></ion-icon>(555) 123-4567</a>
+            <a href="mailto:crispyfriedchken@gmail.com"><ion-icon name="mail-outline"></ion-icon>crispyfriedchken@gmail.com</a>
+            <a href="#"><ion-icon name="location-outline"></ion-icon>123 Flavor St, Party City</a>
+            <a href="#"><ion-icon name="time-outline"></ion-icon>Mon–Sun: 11am – 2am</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Crispy Fried Chicken · Fine Dining & Private Events</p>
+        <p>Made with <ion-icon name="heart" style="color:var(--red)"></ion-icon> and hot oil</p>
+    </div>
+</footer>
+
+<script src="js/menu.js"></script>
+</body>
+</html>
