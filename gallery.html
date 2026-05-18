@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallery — Crispy Fried Chicken</title>
+<link rel="icon" type="image/svg+xml" href="flame.svg">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="utility-bar">
+    <div class="utility-bar-inner">
+      <div class="utility-left">
+        <span class="utility-tag">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter/X">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <ion-icon name="flame"></ion-icon>
+        CFC
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">
+          <ion-icon name="home-outline"></ion-icon>Home
+        </a>
+        <a href="menu.html" class="nav-link">
+          <ion-icon name="restaurant-outline"></ion-icon>Menu
+        </a>
+        <a href="gallery.html" class="nav-link active">
+          <ion-icon name="images-outline"></ion-icon>Gallery
+        </a>
+        <a href="reservation.html" class="nav-link">
+          <ion-icon name="calendar-outline"></ion-icon>Reservation
+        </a>
+        <a href="order.html" class="nav-link">
+          <ion-icon name="bag-outline"></ion-icon>Order
+        </a>
+        <a href="about.html" class="nav-link">
+          <ion-icon name="people-outline"></ion-icon>About
+        </a>
+        <a href="faq.html" class="nav-link">
+          <ion-icon name="help-circle-outline"></ion-icon>FAQ
+        </a>
+      </div>
+      <a href="order.html" class="nav-cta">
+        <ion-icon name="bag-outline"></ion-icon>Order Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="gallery-hero">
+    <div class="gallery-hero-bg">
+      <img src="media/events/AfterParty.webp" alt="" aria-hidden="true" class="gallery-hero-bgimg">
+      <div class="gallery-hero-overlay"></div>
+    </div>
+    <div class="gallery-hero-inner">
+      <span class="gallery-hero-eyebrow">
+        <ion-icon name="camera-outline"></ion-icon>
+        Our Gallery
+      </span>
+      <h1 class="gallery-hero-title">Inside the Experience</h1>
+      <p class="gallery-hero-desc">
+        The food, the vibe, the people — every frame tells a story.
+        Welcome to the world of Crispy Fried Chicken.
+      </p>
+      <div class="gallery-hero-stats">
+        <div class="ghs">
+          <span class="ghs-num" id="heroPhotoCount">0</span>
+          <span class="ghs-label">Photos</span>
+        </div>
+        <div class="ghs-divider"></div>
+        <div class="ghs">
+          <span class="ghs-num" id="heroCatCount">0</span>
+          <span class="ghs-label">Categories</span>
+        </div>
+        <div class="ghs-divider"></div>
+        <div class="ghs">
+          <span class="ghs-num">12+</span>
+          <span class="ghs-label">Years of Moments</span>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-hero-scroll">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </section>
+
+  <!-- ══ FEATURED BANNER — visually separate from the grid ══ -->
+  <section class="featured-banner" id="featuredRow" aria-label="Featured photos">
+    <div class="featured-banner-inner">
+      <div class="featured-banner-header">
+        <div class="featured-banner-eyebrow">
+          <ion-icon name="star"></ion-icon>
+          Editor's Picks
+        </div>
+        <div class="featured-banner-text">
+          <h2>Featured Moments</h2>
+          <p>Hand-selected highlights from the CFC experience.</p>
+        </div>
+      </div>
+      <div class="featured-row-grid" id="featuredGrid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MAIN GALLERY ══════════════════════════════════════ -->
+  <main class="gallery-main">
+
+    <!-- Section divider -->
+    <div class="gallery-section-divider">
+      <div class="gsd-line"></div>
+      <div class="gsd-label">
+        <ion-icon name="images-outline"></ion-icon>
+        All Photos
+      </div>
+      <div class="gsd-line"></div>
+    </div>
+
+    <!-- FILTER BAR — buttons are built from JSON categories -->
+    <div class="filter-bar-wrap">
+      <div class="filter-bar" id="filterBar">
+        <!-- populated by JS -->
+      </div>
+      <div class="filter-view-toggle">
+        <button class="view-btn active" id="viewGrid" aria-label="Grid view">
+          <ion-icon name="grid-outline"></ion-icon>
+        </button>
+        <button class="view-btn" id="viewMasonry" aria-label="Masonry view">
+          <ion-icon name="albums-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- RESULTS COUNT -->
+    <div class="gallery-meta-row">
+      <p class="gallery-count" id="galleryCount">Loading...</p>
+      <div class="gallery-sort">
+        <ion-icon name="funnel-outline"></ion-icon>
+        <select id="gallerySort" aria-label="Sort gallery">
+          <option value="default">Default Order</option>
+          <option value="az">A – Z</option>
+          <option value="za">Z – A</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- MAIN GALLERY GRID — built from JSON -->
+    <div class="gallery-grid-wrap grid-view" id="galleryGrid">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="noResults" style="display:none;">
+      <ion-icon name="images-outline"></ion-icon>
+      <h3>No photos in this category yet</h3>
+      <p>Check back soon — we are always adding more.</p>
+      <button class="btn btn-red" id="noResultsReset">
+        <ion-icon name="refresh-outline"></ion-icon>
+        Show All Photos
+      </button>
+    </div>
+
+    <!-- LOAD MORE -->
+    <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+      <button class="load-more-btn" id="loadMoreBtn">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        Load More Photos
+      </button>
+    </div>
+
+    <!-- CTA STRIP -->
+    <div class="gallery-cta-strip">
+      <div class="gcs-inner">
+        <div class="gcs-text">
+          <h2>Want to be in our gallery?</h2>
+          <p>Tag us on Instagram with <strong>@CrispyFriedChicken</strong> and your photo might end up here.</p>
+        </div>
+        <div class="gcs-actions">
+          <a href="#" class="btn btn-primary">
+            <ion-icon name="logo-instagram"></ion-icon>
+            Tag Us on Instagram
+          </a>
+          <a href="reservation.html" class="btn btn-outline">
+            <ion-icon name="calendar-outline"></ion-icon>
+            Book Your Visit
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next image">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+    <div class="lightbox-content">
+      <div class="lightbox-img-wrap">
+        <img src="" alt="" id="lightboxImg">
+      </div>
+      <div class="lightbox-info">
+        <span class="lightbox-cat" id="lightboxCat"></span>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <ion-icon name="flame"></ion-icon>
+          <span>Crispy Fried Chicken</span>
+        </div>
+        <p>Fine dining meets bold flavor. Every meal is a celebration.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/crispyfriedchken/" class="social-link" target = "_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="https://www.tiktok.com/@crispyfriedchken" class="social-link" target="_blank" aria-label="TikTok"><ion-icon name="logo-tiktok"></ion-icon></a>
+          <a href="https://www.facebook.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="https://twitter.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+          <a href="https://www.youtube.com/crispyfriedchken" class="social-link" target="_blank" aria-label="YouTube"><ion-icon name="logo-youtube"></ion-icon></a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reservation.html">Reservation</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>Experience</h4>
+        <a href="order.html">Online Order</a>
+        <a href="about.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="reservation.html">Private Events</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>Contact</h4>
+        <a href="tel:5551234567"><ion-icon name="call-outline"></ion-icon>(555) 123-4567</a>
+        <a href="mailto:crispyfriedchken@gmail.com"><ion-icon name="mail-outline"></ion-icon>crispyfriedchken@gmail.com</a>
+        <a href="#"><ion-icon name="location-outline"></ion-icon>123 Flavor St, Party City</a>
+        <a href="#"><ion-icon name="time-outline"></ion-icon>Mon–Sun: 11am – 2am</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2025 Crispy Fried Chicken &middot; Fine Dining &amp; Private Events</p>
+      <p>Made with <ion-icon name="heart" style="color:var(--red)"></ion-icon> and hot oil</p>
+    </div>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+  <script src="js/data/gallery-data.js"></script>
+</body>
+</html>

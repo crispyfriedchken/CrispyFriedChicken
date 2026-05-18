@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="flame.svg">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Crispy Fried Chicken</title>
+  <!--<link rel="stylesheet" href="css/home.css">-->
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="utility-bar">
+    <div class="utility-bar-inner">
+      <div class="utility-left">
+        <span class="utility-tag">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter/X">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER / HERO -->
+  <header id="home">
+    <div class="header-inner">
+      <div class="header-logo">
+        <ion-icon name="flame"></ion-icon>
+      </div>
+      <h1>Crispy Fried Chicken</h1>
+      <p class="header-sub">Fine Dining &middot; Fried Perfection &middot; Private Events</p>
+      <div class="header-cta-row">
+        <a href="reservation.html" class="btn btn-primary">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Reserve a Table
+        </a>
+        <a href="order.html" class="btn btn-outline">
+          <ion-icon name="bag-outline"></ion-icon>
+          Order Now
+        </a>
+      </div>
+    </div>
+    <div class="header-scroll-hint">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </header>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand">
+        <ion-icon name="flame"></ion-icon>
+        CFC
+      </a>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">
+          <ion-icon name="home-outline"></ion-icon>
+          Home
+        </a>
+        <a href="menu.html" class="nav-link">
+          <ion-icon name="restaurant-outline"></ion-icon>
+          Menu
+        </a>
+        <a href="gallery.html" class="nav-link">
+          <ion-icon name="images-outline"></ion-icon>
+          Gallery
+        </a>
+        <a href="reservation.html" class="nav-link">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Reservation
+        </a>
+        <a href="order.html" class="nav-link">
+          <ion-icon name="bag-outline"></ion-icon>
+          Order
+        </a>
+        <a href="about.html" class="nav-link">
+          <ion-icon name="people-outline"></ion-icon>
+          About
+        </a>
+        <a href="faq.html" class="nav-link">
+          <ion-icon name="help-circle-outline"></ion-icon>
+          FAQ
+        </a>
+      </div>
+
+      <a href="order.html" class="nav-cta">
+        <ion-icon name="bag-outline"></ion-icon>
+        Order Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="home" id="homeMain">
+
+    <!-- WELCOME MESSAGE -->
+    <section class="welcome-section" id="welcomeSection">
+      <div class="welcome-inner">
+        <div class="welcome-text-block">
+          <span class="welcome-eyebrow">
+            <ion-icon name="flame-outline"></ion-icon>
+            Welcome to CFC
+          </span>
+          <h2 class="welcome-heading" id="welcomeHeading">Good Evening</h2>
+          <p class="welcome-body" id="welcomeBody">
+            We are glad to have you here. Whether you are joining us for a quiet dinner,
+            a celebration with friends, or a late-night craving — you are in the right place.
+            Pull up a seat and let us take care of the rest.
+          </p>
+          <div class="welcome-actions">
+            <a href="menu.html" class="btn btn-red">
+              <ion-icon name="restaurant-outline"></ion-icon>
+              Explore the Menu
+            </a>
+            <a href="reservation.html" class="btn btn-outline-dark">
+              <ion-icon name="calendar-outline"></ion-icon>
+              Book a Table
+            </a>
+          </div>
+        </div>
+        <div class="welcome-info-panel">
+          <div class="wip-clock">
+            <ion-icon name="time-outline"></ion-icon>
+            <span id="liveClock">00:00</span>
+          </div>
+          <div class="wip-status" id="statusBadge">
+            <span class="status-dot"></span>
+            <span id="statusText">Open Now</span>
+          </div>
+          <div class="wip-divider"></div>
+          <div class="wip-row">
+            <ion-icon name="location-outline"></ion-icon>
+            <span>123 Flavor St, Party City</span>
+          </div>
+          <div class="wip-row">
+            <ion-icon name="call-outline"></ion-icon>
+            <span>(555) 123-4567</span>
+          </div>
+          <div class="wip-row">
+            <ion-icon name="time-outline"></ion-icon>
+            <span>Mon – Sun &nbsp;11am – 2am</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- FEATURED MEAL BANNER -->
+<section class="featured-banner-section">
+  <div class="featured-banner">
+
+    <!-- Full bleed background image -->
+    <div class="featured-banner-bg">
+      <img src="media/food/burgers/item1.png" alt="" aria-hidden="true" class="featured-banner-bgimg">
+      <div class="featured-banner-bg-overlay"></div>
+    </div>
+
+    <div class="featured-banner-badge">
+      <ion-icon name="star"></ion-icon>
+      Dish of the Week
+    </div>
+
+    <div class="featured-banner-content">
+      <div class="featured-banner-text">
+        <span class="featured-banner-label">Limited Time Offer</span>
+        <h2 class="featured-banner-title">The Signature Crown Crunch</h2>
+        <p class="featured-banner-desc">
+          Eight pieces of our legendary hand-breaded fried chicken, double-fried for maximum
+          crunch. Served with honey butter biscuits, seasoned waffle fries, and your choice of
+          two house-made dipping sauces. A true crown jewel of our kitchen.
+        </p>
+        <div class="featured-banner-meta">
+          <span class="featured-banner-price">$28.99</span>
+          <span class="featured-banner-tag">
+            <ion-icon name="flame-outline"></ion-icon>
+            Chef's Recommendation
+          </span>
+          <span class="featured-banner-tag">
+            <ion-icon name="people-outline"></ion-icon>
+            Feeds 2 – 3
+          </span>
+        </div>
+        <div class="featured-banner-actions">
+          <a href="order.html" class="btn btn-primary">
+            <ion-icon name="bag-outline"></ion-icon>
+            Order Now
+          </a>
+          <a href="menu.html" class="btn btn-outline">
+            <ion-icon name="restaurant-outline"></ion-icon>
+            View Full Menu
+          </a>
+        </div>
+      </div>
+
+      <div class="featured-banner-image-wrap">
+        <div class="featured-banner-glow"></div>
+        <div class="featured-banner-img-ring">
+          <img src="media/food/burgers/item1.png" alt="The Signature Crown Crunch" class="featured-banner-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticker -->
+    <div class="featured-ticker-wrap">
+      <div class="featured-ticker" id="featuredTicker">
+        <span>Signature Crown Crunch</span>
+        <span class="ticker-dot"></span>
+        <span>Double-Fried Perfection</span>
+        <span class="ticker-dot"></span>
+        <span>Available All Week</span>
+        <span class="ticker-dot"></span>
+        <span>Only $28.99</span>
+        <span class="ticker-dot"></span>
+        <span>Chef's Recommendation</span>
+        <span class="ticker-dot"></span>
+        <span>Honey Butter Biscuits Included</span>
+        <span class="ticker-dot"></span>
+        <span>Signature Crown Crunch</span>
+        <span class="ticker-dot"></span>
+        <span>Double-Fried Perfection</span>
+        <span class="ticker-dot"></span>
+        <span>Available All Week</span>
+        <span class="ticker-dot"></span>
+        <span>Only $28.99</span>
+        <span class="ticker-dot"></span>
+        <span>Chef's Recommendation</span>
+        <span class="ticker-dot"></span>
+        <span>Honey Butter Biscuits Included</span>
+        <span class="ticker-dot"></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+    <!-- GREETING / TIME SECTION -->
+    <section class="greeting-section">
+      <div class="greeting-inner">
+        <div class="greeting-text">
+          <span class="greeting-label" id="greetingLabel">Good Evening</span>
+          <h2 class="greeting-headline">
+            Ready for something<br>
+            <em>crispy &amp; unforgettable?</em>
+          </h2>
+          <p class="greeting-sub" id="greetingSub">
+            Tonight's the perfect night to treat yourself.
+          </p>
+        </div>
+        <div class="greeting-badges">
+          <div class="time-badge">
+            <ion-icon name="time-outline"></ion-icon>
+            <span id="liveClockGreet">00:00</span>
+          </div>
+          <div class="status-badge open" id="statusBadge2">
+            <span class="status-dot"></span>
+            Open Now
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED ITEMS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <ion-icon name="star-outline"></ion-icon>
+          Featured
+        </div>
+        <h2 class="section-title">Our Signatures</h2>
+        <p class="section-desc">Hand-crafted recipes passed down through generations. Every bite tells a story.</p>
+      </div>
+
+      <div class="food-items-track-wrap">
+        <button class="scroll-arrow left" data-target="foodItemsTrack" aria-label="Scroll left">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <div class="food-items-track" id="foodItemsTrack">
+          <div class="food-item-card">
+            <div class="food-item-img-wrap">
+              <img src="media/food/burgers/SignatureCrispy.png" alt="Signature Crispy Chicken">
+            </div>
+            <div class="food-item-info">
+              <h4>Signature Crispy</h4>
+              <p>Golden fried, seasoned to perfection</p>
+              <span class="food-price">$14.99</span>
+            </div>
+          </div>
+          <div class="food-item-card">
+            <div class="food-item-img-wrap">
+              <img src="media/food/burgers/SpicyFireBun.png" alt="Spicy Fire Bun">
+            </div>
+            <div class="food-item-info">
+              <h4>Spicy Fire Bun</h4>
+              <p>Blazing heat with smoky undertones</p>
+              <span class="food-price">$12.99</span>
+            </div>
+          </div>
+          <div class="food-item-card">
+            <div class="food-item-img-wrap">
+              <img src="media/food/burgers/DuoPlatter.png" alt="Duo Platter">
+            </div>
+            <div class="food-item-info">
+              <h4>Duo Platter</h4>
+              <p>Feeds 2–4, perfect for sharing</p>
+              <span class="food-price">$29.99</span>
+            </div>
+          </div>
+          <div class="food-item-card">
+            <div class="food-item-img-wrap">
+              <img src="media/food/burgers/HoneyGlazedTenders.png" alt="Honey Glazed Tenders">
+            </div>
+            <div class="food-item-info">
+              <h4>Honey Glazed Tenders</h4>
+              <p>Sweet meets crispy in every strip</p>
+              <span class="food-price">$11.99</span>
+            </div>
+          </div>
+          <div class="food-item-card">
+            <div class="food-item-img-wrap">
+              <img src="media/food/burgers/GrandCombo.png" alt="Classic Combo">
+            </div>
+            <div class="food-item-info">
+              <h4>Grand Combo</h4>
+              <p>16 pieces + Extra Large Fries</p>
+              <span class="food-price">$13.99</span>
+            </div>
+          </div>
+        </div>
+        <button class="scroll-arrow right" data-target="foodItemsTrack" aria-label="Scroll right">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </section>
+
+    <!-- STATS ROW -->
+    <section class="stats-section">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">12+</span>
+          <span class="stat-label">Years Serving</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">50K+</span>
+          <span class="stat-label">Happy Guests</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">200+</span>
+          <span class="stat-label">Events Hosted</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Menu Items</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <ion-icon name="sparkles-outline"></ion-icon>
+          Experiences
+        </div>
+        <h2 class="section-title">Activities &amp; Events</h2>
+        <p class="section-desc">More than a meal — we're a full experience.</p>
+      </div>
+
+      <div class="collapsible-group">
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="true">
+            <span class="collapse-icon-wrap">
+              <ion-icon name="pizza-outline"></ion-icon>
+            </span>
+            <span>Buffets &amp; Open Dining</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body open">
+            <div class="collapse-content">
+              <p>All-you-can-eat fried food buffets every Friday and Saturday evening. Choose from 20+ rotating items including wings, tenders, sides, and desserts. Premium buffet experience in a fine dining atmosphere.</p>
+              <div class="collapse-tags">
+                <span class="ctag">Fri &amp; Sat</span>
+                <span class="ctag">7pm – 11pm</span>
+                <span class="ctag">$35/person</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap">
+              <ion-icon name="balloon-outline"></ion-icon>
+            </span>
+            <span>Birthday &amp; Private Parties</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Rent out our private dining room or the full venue for birthdays, anniversaries, graduations, and more. Custom menus, decorations coordination, DJ packages, and dedicated event staff included.</p>
+              <div class="collapse-tags">
+                <span class="ctag">Up to 200 guests</span>
+                <span class="ctag">Custom Menu</span>
+                <span class="ctag">DJ Available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap">
+              <ion-icon name="flame-outline"></ion-icon>
+            </span>
+            <span>Cook In Front of You Experience</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Watch our chefs fry your meal tableside on live cooking stations. Interactive, theatrical, and delicious. Available for groups of 4 or more with advance reservation.</p>
+              <div class="collapse-tags">
+                <span class="ctag">Groups 4+</span>
+                <span class="ctag">Reservation Required</span>
+                <span class="ctag">Thur–Sun</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap">
+              <ion-icon name="hand-right-outline"></ion-icon>
+            </span>
+            <span>You Cook the Food!</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Our most popular activity. Get suited up in chef gear and fry your own meal under the guidance of our head chef. Great for team buildings, dates, and family outings. Safety equipment provided.</p>
+              <div class="collapse-tags">
+                <span class="ctag">All Ages</span>
+                <span class="ctag">Chef Guided</span>
+                <span class="ctag">$25/person</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible">
+          <button class="collapsible-trigger" aria-expanded="false">
+            <span class="collapse-icon-wrap">
+              <ion-icon name="business-outline"></ion-icon>
+            </span>
+            <span>Venue Rental</span>
+            <ion-icon name="chevron-down-outline" class="collapse-chevron"></ion-icon>
+          </button>
+          <div class="collapsible-body">
+            <div class="collapse-content">
+              <p>Full venue rental available for corporate events, celebrations, and nightlife. Full bar service, lighting rigs, sound system, and catering packages available. Contact us for custom quotes.</p>
+              <div class="collapse-tags">
+                <span class="ctag">Full Bar</span>
+                <span class="ctag">Sound System</span>
+                <span class="ctag">Custom Quote</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Activity Carousel -->
+      <div class="carousel-wrap" style="margin-top:36px;">
+        <div class="carousel-header">
+          <h3 class="carousel-title">
+            <ion-icon name="images-outline"></ion-icon>
+            Activity Highlights
+          </h3>
+        </div>
+        <div class="food-carousel-wrap">
+          <button class="scroll-arrow left" data-target="actCarousel" aria-label="Scroll left">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </button>
+          <div class="food-carousel" id="actCarousel">
+            <div class="carousel-card">
+              <img src="media/events/BestFriends.webp" alt="Girls Night Out">
+              <div class="carousel-card-label">Girls Nigh Out</div>
+            </div>
+            <div class="carousel-card">
+              <img src="media/events/FamilyGathering.jpg" alt="Family gathering">
+              <div class="carousel-card-label">Family Gathering</div>
+            </div>
+            <div class="carousel-card">
+              <img src="media/events/DessertNight.jpg" alt="Dessert night">
+              <div class="carousel-card-label">Dessert Night</div>
+            </div>
+            <div class="carousel-card">
+              <img src="media/events/19thBirthday.jpg" alt="19th birthday">
+              <div class="carousel-card-label">19th Birthday</div>
+            </div>
+            <div class="carousel-card">
+              <img src="media/events/PartyNight.webp" alt="Party Night">
+              <div class="carousel-card-label">Party Night</div>
+            </div>
+            <div class="carousel-card">
+              <img src="media/events/AfterParty.webp" alt="Party vibes">
+              <div class="carousel-card-label">Party Vibes</div>
+            </div>
+          </div>
+          <button class="scroll-arrow right" data-target="actCarousel" aria-label="Scroll right">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section">
+      <div class="section-header">
+        <div class="section-label">
+          <ion-icon name="camera-outline"></ion-icon>
+          Atmosphere
+        </div>
+        <h2 class="section-title">Inside the Experience</h2>
+        <p class="section-desc">The vibe, the scene, the night — captured.</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item large">
+          <img src="media/events/FamilyGathering.jpg" alt="Family Gathering">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Family Gathering</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="media/events/DateNight.jpg" alt="Fine dining">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Fine Dining</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="media/location/kitchen.jpg" alt="Kitchen action 1">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Kitchen Action</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="media/location/kitchen2.jpg" alt="Kitchen action 2">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Heat In The Kitchen</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="media/events/club.jpg" alt="Club night">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Club Night</span>
+          </div>
+        </div>
+        <div class="gallery-item large">
+          <img src="media/events/club1.jpg" alt="Party atmosphere">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Party Atmosphere</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="media/events/club2.jpg" alt="Dance floor">
+          <div class="gallery-overlay">
+            <ion-icon name="expand-outline"></ion-icon>
+            <span>Dance Floor</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="gallery.html" class="btn btn-outline-dark">
+          <ion-icon name="images-outline"></ion-icon>
+          View Full Gallery
+        </a>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <img src="" alt="" id="lightboxImg">
+      <p id="lightboxCaption"></p>
+    </div>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Ready to book your experience?</h2>
+          <p>Reserve a table, plan a party, or just show up hungry.</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="reservation.html" class="btn btn-primary">
+            <ion-icon name="calendar-outline"></ion-icon>
+            Make a Reservation
+          </a>
+          <a href="order.html" class="btn btn-white">
+            <ion-icon name="bag-outline"></ion-icon>
+            Order Online
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -- Duplicate content across pages  only insta was made-->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <ion-icon name="flame"></ion-icon>
+          <span>Crispy Fried Chicken</span>
+        </div>
+        <p>Fine dining meets bold flavor. Every meal is a celebration.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/crispyfriedchken/" class="social-link" target="_blank" aria-label="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a href="https://www.tiktok.com/@crispyfriedchken" class="social-link" target="_blank" aria-label="TikTok">
+            <ion-icon name="logo-tiktok"></ion-icon>
+          </a>
+          <a href="https://www.facebook.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="https://twitter.com/crispyfriedchken" class="social-link" target="_blank" aria-label="Twitter">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="https://www.youtube.com/crispyfriedchken" class="social-link" target="_blank" aria-label="YouTube">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Navigate</h4>
+        <a href="#home">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reservation.html">Reservation</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Experience</h4>
+        <a href="order.html">Online Order</a>
+        <a href="about.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="reservation.html">Private Events</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Contact</h4>
+        <a href="tel:5551234567">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </a>
+        <a href="mailto:crispyfriedchken@gmail.com">
+          <ion-icon name="mail-outline"></ion-icon>
+          crispyfriedchken@gmail.com
+        </a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=123+Flavor+St,+Party+City" target="_blank">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </a>
+        <a href="#">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&#169; 2025 Crispy Fried Chicken &middot; Fine Dining &amp; Private Events</p>
+      <p>Made with <ion-icon name="heart" style="color:var(--red)"></ion-icon> and hot oil</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

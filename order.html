@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order — Crispy Fried Chicken</title>
+  <link rel="icon" type="image/svg+xml" href="flame.svg">
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet" href="css/order.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="utility-bar">
+    <div class="utility-bar-inner">
+      <div class="utility-left">
+        <span class="utility-tag">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter/X">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <ion-icon name="flame"></ion-icon>
+        <span>CFC</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">
+          <ion-icon name="home-outline"></ion-icon>
+          Home
+        </a>
+        <a href="menu.html" class="nav-link">
+          <ion-icon name="restaurant-outline"></ion-icon>
+          Menu
+        </a>
+        <a href="gallery.html" class="nav-link">
+          <ion-icon name="images-outline"></ion-icon>
+          Gallery
+        </a>
+        <a href="reservation.html" class="nav-link">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Reservation
+        </a>
+        <a href="order.html" class="nav-link">
+          <ion-icon name="bag-outline"></ion-icon>
+          Order
+        </a>
+        <a href="about.html" class="nav-link">
+          <ion-icon name="people-outline"></ion-icon>
+          About
+        </a>
+        <a href="faq.html" class="nav-link">
+          <ion-icon name="help-circle-outline"></ion-icon>
+          FAQ
+        </a>
+      </div>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="View cart">
+          <ion-icon name="bag-outline"></ion-icon>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-header-sup">Fresh &amp; Hot</p>
+      <h1>Place Your Order</h1>
+      <p class="page-header-sub">Choose your favourites, pick delivery or pickup, and we'll handle the rest.</p>
+    </div>
+  </div>
+
+  <!-- ORDER LAYOUT -->
+  <div class="order-layout" id="orderLayout">
+
+    <!-- LEFT: MENU PANEL -->
+    <div class="menu-panel">
+
+      <!-- DELIVERY / PICKUP TOGGLE -->
+      <section class="fulfillment-section card-block">
+        <h2 class="section-label">How would you like your order?</h2>
+        <div class="fulfillment-tabs">
+          <button class="fulfillment-tab active" data-mode="delivery" id="tabDelivery">
+            <!-- Delivery SVG from Ionicons path -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" fill="currentColor">
+              <path d="M463.46 234.89L430 128H352V80H48a16 16 0 00-16 16v320h32a64 64 0 00128 0h128a64 64 0 00128 0h16V272l-20.54-37.11zM176 432a32 32 0 110-64 32 32 0 010 64zm224 0a32 32 0 110-64 32 32 0 010 64zM352 208V144h64l28.08 80H352z"/>
+            </svg>
+            Delivery
+          </button>
+          <button class="fulfillment-tab" data-mode="pickup" id="tabPickup">
+            <!-- Pickup / store SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 512 512" fill="currentColor">
+              <path d="M480 128H32A16 16 0 0016 144v32a16 16 0 0016 16h8v192a32 32 0 0032 32h368a32 32 0 0032-32V192h8a16 16 0 0016-16v-32a16 16 0 00-16-16zm-96 208H208v-16a80 80 0 01160 0v16z"/>
+            </svg>
+            Pickup
+          </button>
+        </div>
+
+        <!-- DELIVERY OPTIONS -->
+        <div class="delivery-options" id="deliveryOptions">
+          <div class="form-row">
+            <label class="form-label" for="deliveryZone">Delivery Location</label>
+            <select class="form-select" id="deliveryZone">
+              <option value="">Select your zone...</option>
+              <option value="local">Local (within 10 km) — +$2.50</option>
+              <option value="regional">Regional (10–30 km) — +$5.00</option>
+              <option value="distant">Distant (30–60 km) — +$10.00</option>
+              <option value="overseas">Overseas / Island-wide — +$18.00</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="deliveryAddress">Delivery Address</label>
+            <input type="text" class="form-input" id="deliveryAddress" placeholder="Enter your full address...">
+          </div>
+        </div>
+
+        <!-- PICKUP INFO -->
+        <div class="pickup-info hidden" id="pickupInfo">
+          <div class="pickup-notice">
+            <ion-icon name="location-outline"></ion-icon>
+            <div>
+              <strong>123 Flavor St, Party City</strong>
+              <span>Mon–Sun &middot; 11am – 2am &middot; Free parking available</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <span class="filter-label">Browse:</span>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="chicken">Chicken</button>
+          <button class="chip" data-filter="combos">Combos</button>
+          <button class="chip" data-filter="sides">Sides</button>
+          <button class="chip" data-filter="desserts">Desserts</button>
+          <button class="chip" data-filter="drinks">Drinks</button>
+        </div>
+      </div>
+
+      <!-- SECTION: CHICKEN -->
+      <section class="menu-section" data-section="chicken">
+        <div class="menu-section-header">
+          <h2>Crispy Chicken</h2>
+          <p>Hand-battered and fried to golden perfection.</p>
+        </div>
+        <div class="menu-grid" id="grid-chicken">
+          <!-- ITEM TEMPLATE — duplicate & customise as needed -->
+          <div class="menu-item"
+               data-id="ch1"
+               data-name="Classic Crispy Thigh"
+               data-price="8.99"
+               data-category="chicken"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media/food/burgers/download.jpg" alt="Classic Crispy Thigh — golden fried chicken thigh" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Classic Crispy Thigh</h3>
+              <p>Our signature batter, double-fried for maximum crunch. Served with house dipping sauce.</p>
+              <div class="menu-item-footer">
+                <span class="price">$8.99</span>
+                <button class="add-btn" aria-label="Add Classic Crispy Thigh to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="ch2"
+               data-name="Spicy Drumstick Duo"
+               data-price="9.99"
+               data-category="chicken"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\wings\NuclearWings.jpg" alt="Spicy Drumstick Duo — two spicy fried drumsticks" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Spicy Drumstick Duo</h3>
+              <p>Two fiery drumsticks with our cayenne-infused batter. Heat level: medium-hot.</p>
+              <div class="menu-item-footer">
+                <span class="price">$9.99</span>
+                <button class="add-btn" aria-label="Add Spicy Drumstick Duo to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="ch3"
+               data-name="Honey Glazed Wings (6pc)"
+               data-price="12.49"
+               data-category="chicken"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\wings\ClassicWings.jpg" alt="Honey Glazed Wings — six glazed chicken wings" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Honey Glazed Wings <span class="item-tag">6pc</span></h3>
+              <p>Crispy wings tossed in house honey-butter glaze. Finger-lickin' good.</p>
+              <div class="menu-item-footer">
+                <span class="price">$12.49</span>
+                <button class="add-btn" aria-label="Add Honey Glazed Wings to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION: COMBOS -->
+      <section class="menu-section" data-section="combos">
+        <div class="menu-section-header">
+          <h2>Combo Meals</h2>
+          <p>Complete meals — a main, sides &amp; a drink bundled together.</p>
+        </div>
+        <div class="menu-grid" id="grid-combos">
+
+          <div class="menu-item"
+               data-id="co1"
+               data-name="The Classic Combo"
+               data-price="16.99"
+               data-category="combos"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\burgers\download.webp" alt="Classic Combo — chicken, fries and a drink" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>The Classic Combo <span class="item-tag popular">Popular</span></h3>
+              <p>1 crispy thigh + regular fries + coleslaw + 1 regular drink. The go-to meal.</p>
+              <div class="menu-item-footer">
+                <span class="price">$16.99</span>
+                <button class="add-btn" aria-label="Add The Classic Combo to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="co2"
+               data-name="Family Feast Box"
+               data-price="42.99"
+               data-category="combos"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\menu_items\signatures\CrispyPopcornChicken.jpg" alt="Family Feast Box — large family meal" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Family Feast Box <span class="item-tag">Serves 4</span></h3>
+              <p>8 mixed pieces + large fries + 2 sides + 4 drinks. Perfect for the whole crew.</p>
+              <div class="menu-item-footer">
+                <span class="price">$42.99</span>
+                <button class="add-btn" aria-label="Add Family Feast Box to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="co3"
+               data-name="Party Platter"
+               data-price="74.99"
+               data-category="combos"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\wings\NuclearWings.jpg" alt="Party Platter — large event order" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Party Platter <span class="item-tag">Serves 10</span></h3>
+              <p>20 mixed pieces + 3 large sides + 10 drinks. Built for celebrations.</p>
+              <div class="menu-item-footer">
+                <span class="price">$74.99</span>
+                <button class="add-btn" aria-label="Add Party Platter to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION: SIDES -->
+      <section class="menu-section" data-section="sides">
+        <div class="menu-section-header">
+          <h2>Sides &amp; Add-ons</h2>
+          <p>Round out your meal with our signature sides.</p>
+        </div>
+        <div class="menu-grid" id="grid-sides">
+
+          <div class="menu-item"
+               data-id="si1"
+               data-name="Seasoned Fries"
+               data-price="4.49"
+               data-category="sides"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\menu_items\signatures\PartyPlatter.jpg" alt="Seasoned Fries" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Seasoned Fries</h3>
+              <p>Crisp golden fries tossed in our house seasoning blend. Available regular or large.</p>
+              <div class="menu-item-footer">
+                <span class="price">$4.49</span>
+                <button class="add-btn" aria-label="Add Seasoned Fries to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="si2"
+               data-name="Creamy Coleslaw"
+               data-price="3.49"
+               data-category="sides"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\menu_items\signatures\HoneyStarNuggets.jpg" alt="Creamy Coleslaw" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Creamy Coleslaw</h3>
+              <p>House-made with fresh cabbage, carrot, and a rich buttermilk dressing.</p>
+              <div class="menu-item-footer">
+                <span class="price">$3.49</span>
+                <button class="add-btn" aria-label="Add Creamy Coleslaw to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="si3"
+               data-name="Mac &amp; Cheese"
+               data-price="5.49"
+               data-category="sides"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\combos\CrispyCrownCombo.webp" alt="Mac and Cheese" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Mac &amp; Cheese</h3>
+              <p>Baked three-cheese mac with a golden breadcrumb crust. Comfort in a bowl.</p>
+              <div class="menu-item-footer">
+                <span class="price">$5.49</span>
+                <button class="add-btn" aria-label="Add Mac and Cheese to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION: DESSERTS -->
+      <section class="menu-section" data-section="desserts">
+        <div class="menu-section-header">
+          <h2>Desserts</h2>
+          <p>Sweet endings to a perfect meal. Cooling surcharge applies on delivery.</p>
+        </div>
+        <div class="menu-grid" id="grid-desserts">
+
+          <div class="menu-item"
+               data-id="de1"
+               data-name="Vanilla Bean Ice Cream"
+               data-price="5.99"
+               data-category="desserts"
+               data-cooling="true">
+            <div class="menu-item-img">
+              <img src="media\food\dessert\FriedOreos.jpg" alt="Vanilla Bean Ice Cream" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Vanilla Bean Ice Cream <span class="cooling-badge">+ Cooling</span></h3>
+              <p>Two generous scoops of premium vanilla bean. Kept chilled with insulated packaging.</p>
+              <div class="menu-item-footer">
+                <span class="price">$5.99</span>
+                <button class="add-btn" aria-label="Add Vanilla Bean Ice Cream to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item"
+               data-id="de2"
+               data-name="Warm Banana Pudding"
+               data-price="6.49"
+               data-category="desserts"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\dessert\RedVelvetWaffle.jpg" alt="Warm Banana Pudding" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Warm Banana Pudding</h3>
+              <p>Southern-style banana pudding with vanilla wafers and whipped cream.</p>
+              <div class="menu-item-footer">
+                <span class="price">$6.49</span>
+                <button class="add-btn" aria-label="Add Warm Banana Pudding to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="de3"
+               data-name="Strawberry Milkshake"
+               data-price="7.49"
+               data-category="desserts"
+               data-cooling="true">
+            <div class="menu-item-img">
+              <img src="media\food\dessert\BananaPuddingCup.jpg" alt="Strawberry Milkshake" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Strawberry Milkshake <span class="cooling-badge">+ Cooling</span></h3>
+              <p>Thick, creamy shake blended with real strawberries and whole milk ice cream.</p>
+              <div class="menu-item-footer">
+                <span class="price">$7.49</span>
+                <button class="add-btn" aria-label="Add Strawberry Milkshake to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION: DRINKS -->
+      <section class="menu-section" data-section="drinks">
+        <div class="menu-section-header">
+          <h2>Drinks</h2>
+          <p>Cold beverages to wash it all down.</p>
+        </div>
+        <div class="menu-grid" id="grid-drinks">
+
+          <div class="menu-item"
+               data-id="dr1"
+               data-name="Soft Drink"
+               data-price="2.49"
+               data-category="drinks"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\drinks\Fanta.jpg" alt="Soft Drink" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Soft Drink</h3>
+              <p>Choice of cola, lemon-lime, or ginger beer. Served cold with ice.</p>
+              <div class="menu-item-footer">
+                <span class="price">$2.49</span>
+                <button class="add-btn" aria-label="Add Soft Drink to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="dr2"
+               data-name="Fresh Lemonade"
+               data-price="3.99"
+               data-category="drinks"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\drinks\Lemonade.webp" alt="Fresh Lemonade" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Fresh Lemonade</h3>
+              <p>Squeezed daily with cane sugar and a hint of mint. Refreshing every time.</p>
+              <div class="menu-item-footer">
+                <span class="price">$3.99</span>
+                <button class="add-btn" aria-label="Add Fresh Lemonade to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item"
+               data-id="dr3"
+               data-name="Bottled Water"
+               data-price="1.49"
+               data-category="drinks"
+               data-cooling="false">
+            <div class="menu-item-img">
+              <img src="media\food\drinks\Water.jpg" alt="Bottled Water" loading="lazy">
+              <div class="menu-item-img-placeholder"><ion-icon name="image-outline"></ion-icon></div>
+            </div>
+            <div class="menu-item-info">
+              <h3>Bottled Water</h3>
+              <p>Still spring water, 500ml.</p>
+              <div class="menu-item-footer">
+                <span class="price">$1.49</span>
+                <button class="add-btn" aria-label="Add Bottled Water to cart">
+                  <ion-icon name="add-outline"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /menu-panel -->
+
+    <!-- RIGHT: CART SIDEBAR -->
+    <aside class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h2>Your Order</h2>
+        <span class="cart-item-count" id="cartHeaderCount">0 items</span>
+      </div>
+
+      <!-- CART ITEMS -->
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty" id="cartEmpty">
+          <ion-icon name="bag-outline"></ion-icon>
+          <p>Your cart is empty.</p>
+          <span>Add items from the menu to get started.</span>
+        </div>
+      </div>
+
+      <!-- CART TOTALS -->
+      <div class="cart-totals" id="cartTotals">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span id="subtotalVal">$0.00</span>
+        </div>
+        <div class="total-row" id="coolingRow" style="display:none">
+          <span>Cooling surcharge</span>
+          <span id="coolingVal">$0.00</span>
+        </div>
+        <div class="total-row" id="deliveryRow" style="display:none">
+          <span>Delivery fee</span>
+          <span id="deliveryVal">$0.00</span>
+        </div>
+        <div class="total-row total-row--grand">
+          <span>Total</span>
+          <span id="grandTotal">$0.00</span>
+        </div>
+      </div>
+
+      <!-- ORDER NOTES -->
+      <div class="cart-notes">
+        <label class="form-label" for="orderNotes">Special instructions (optional)</label>
+        <textarea class="form-textarea" id="orderNotes" placeholder="Allergies, extra sauce, no onions..." rows="2"></textarea>
+      </div>
+
+      <!-- CHECKOUT BTN -->
+      <button class="btn-checkout" id="checkoutBtn">
+        Proceed to Checkout
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </button>
+    </aside>
+
+  </div><!-- /order-layout -->
+
+  <!-- ─── CHECKOUT MODAL ────────────────────────────────── -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Checkout">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <!-- STEPS -->
+      <div class="modal-steps">
+        <div class="modal-step active" data-step="1">
+          <div class="step-dot">1</div>
+          <span>Review</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="modal-step" data-step="2">
+          <div class="step-dot">2</div>
+          <span>Payment</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="modal-step" data-step="3">
+          <div class="step-dot">3</div>
+          <span>Confirm</span>
+        </div>
+      </div>
+
+      <!-- STEP 1: REVIEW -->
+      <div class="modal-body" id="step1">
+        <h3>Review Your Order</h3>
+        <div class="modal-order-list" id="modalOrderList"></div>
+        <div class="modal-totals" id="modalTotals"></div>
+        <div class="modal-form-group">
+          <label class="form-label" for="customerEmail">Your Email Address</label>
+          <input type="email" class="form-input" id="customerEmail" placeholder="you@example.com" required>
+          <small>Your receipt and order confirmation will be sent here.</small>
+        </div>
+        <div class="modal-form-group">
+          <label class="form-label" for="customerName">Your Name</label>
+          <input type="text" class="form-input" id="customerName" placeholder="Full name..." required>
+        </div>
+        <button class="btn-checkout" id="goToPayment">
+          Continue to Payment
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+
+      <!-- STEP 2: PAYMENT -->
+      <div class="modal-body hidden" id="step2">
+        <h3>Choose Payment Method</h3>
+        <div class="payment-methods">
+
+          <label class="payment-option">
+            <input type="radio" name="payMethod" value="card" checked>
+            <div class="payment-card-inner">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              <div>
+                <strong>Credit / Debit Card</strong>
+                <span>Visa, Mastercard, Amex</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payMethod" value="paypal">
+            <div class="payment-card-inner">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 00-.607-.541c1.379 2.937.468 7.48-4.254 9.107.195.02.394.029.596.029 3.628 0 6.546-2.043 7.282-6.432.022-.13.037-.26.048-.39a5.19 5.19 0 00-3.065-1.773z"/>
+              </svg>
+              <div>
+                <strong>PayPal</strong>
+                <span>Pay with your PayPal account</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payMethod" value="cashapp">
+            <div class="payment-card-inner">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.49 17.953l-.313 1.03a.433.433 0 01-.416.316H11.35a.433.433 0 01-.416-.544l.28-.928a5.98 5.98 0 01-2.94-1.07.433.433 0 01-.06-.638l.81-.952a.433.433 0 01.594-.057c.618.47 1.35.74 2.11.74.76 0 1.27-.37 1.27-.89 0-.47-.36-.73-1.44-1.07-1.62-.5-2.73-1.18-2.73-2.67 0-1.37 1.02-2.38 2.61-2.72l.29-.96a.433.433 0 01.416-.316h1.41c.274 0 .47.267.39.53l-.27.9a5.84 5.84 0 012.43.88.433.433 0 01.09.634l-.77.97a.433.433 0 01-.597.085 4.15 4.15 0 00-1.87-.53c-.74 0-1.13.32-1.13.77 0 .45.43.68 1.6 1.05 1.67.54 2.6 1.27 2.6 2.74 0 1.4-1.03 2.47-2.73 2.82z"/>
+              </svg>
+              <div>
+                <strong>Cash App Pay</strong>
+                <span>Pay instantly with Cash App</span>
+              </div>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payMethod" value="cash">
+            <div class="payment-card-inner">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="1" y="4" width="22" height="16" rx="2"></rect>
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M5 12h.01M19 12h.01"></path>
+              </svg>
+              <div>
+                <strong>Cash on Delivery / Pickup</strong>
+                <span>Pay when you receive your order</span>
+              </div>
+            </div>
+          </label>
+
+        </div>
+
+        <!-- Simulated input fields — no real processing -->
+        <div class="payment-fields" id="cardFields">
+          <p class="payment-demo-note">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            Demo mode — no real charges are made. Enter any details to proceed.
+          </p>
+          <div class="form-row">
+            <label class="form-label">Card Number</label>
+            <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
+          </div>
+          <div class="form-row-2col">
+            <div class="form-row">
+              <label class="form-label">Expiry</label>
+              <input type="text" class="form-input" placeholder="MM / YY" maxlength="7">
+            </div>
+            <div class="form-row">
+              <label class="form-label">CVV</label>
+              <input type="text" class="form-input" placeholder="123" maxlength="4">
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-fields hidden" id="paypalFields">
+          <p class="payment-demo-note">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            Demo mode — no real PayPal charge will occur.
+          </p>
+          <div class="form-row">
+            <label class="form-label">PayPal Email</label>
+            <input type="email" class="form-input" placeholder="paypal@example.com">
+          </div>
+        </div>
+
+        <div class="payment-fields hidden" id="cashappFields">
+          <p class="payment-demo-note">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            Demo mode — no real Cash App charge will occur.
+          </p>
+          <div class="form-row">
+            <label class="form-label">Cash App $Cashtag</label>
+            <input type="text" class="form-input" placeholder="$yourcashtag">
+          </div>
+        </div>
+
+        <div class="payment-fields hidden" id="cashFields">
+          <p class="payment-demo-note cash-note">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            Pay with cash when your order arrives or when you pick it up. No details needed.
+          </p>
+        </div>
+
+        <div class="modal-nav">
+          <button class="btn-back" id="backToReview">
+            <ion-icon name="arrow-back-outline"></ion-icon> Back
+          </button>
+          <button class="btn-checkout" id="placeOrder">
+            Place Order
+            <ion-icon name="checkmark-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: CONFIRMATION -->
+      <div class="modal-body hidden" id="step3">
+        <div class="confirm-icon">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+        </div>
+        <h3>Order Placed!</h3>
+        <p class="confirm-sub">A confirmation has been sent to <strong id="confirmEmail"></strong>. Check your inbox — including your spam folder.</p>
+        <div class="confirm-order-id">
+          Order ID: <strong id="confirmOrderId"></strong>
+        </div>
+        <p class="confirm-cancel-note">Need to cancel? A cancellation link has been included in your confirmation email.</p>
+        <button class="btn-checkout" id="closeConfirm" style="margin-top:24px;">
+          Done
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </button>
+      </div>
+
+    </div><!-- /modal -->
+  </div><!-- /modal-overlay -->
+
+  <!-- MOBILE CART BAR -->
+  <div class="mobile-cart-bar" id="mobileCartBar">
+    <div class="mcb-info">
+      <span class="mcb-count" id="mcbCount">0 items</span>
+      <span class="mcb-total" id="mcbTotal">$0.00</span>
+    </div>
+    <button class="mcb-btn" id="mcbBtn">
+      View Cart
+      <ion-icon name="bag-outline"></ion-icon>
+    </button>
+  </div>
+
+  <!-- MOBILE CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Your Order</h3>
+      <button class="cart-drawer-close" id="cartDrawerClose"><ion-icon name="close-outline"></ion-icon></button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerBody"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <ion-icon name="flame"></ion-icon>
+          Crispy Fried Chicken
+        </div>
+        <p>Fine dining, fried perfection, and unforgettable celebrations — all under one roof.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/crispyfriedchken/" class="social-link" target = "_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="#" class="social-link"><ion-icon name="logo-tiktok"></ion-icon></a>
+          <a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>Navigate</h4>
+        <a href="index.html"><ion-icon name="home-outline"></ion-icon>Home</a>
+        <a href="order.html"><ion-icon name="bag-outline"></ion-icon>Order Online</a>
+        <a href="menu.html"><ion-icon name="restaurant-outline"></ion-icon>Full Menu</a>
+        <a href="about.html"><ion-icon name="information-circle-outline"></ion-icon>About Us</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>Contact</h4>
+        <a href="tel:5551234567"><ion-icon name="call-outline"></ion-icon>(555) 123-4567</a>
+        <a href="mailto:crispyfriedchken@gmail.com"><ion-icon name="mail-outline"></ion-icon>crispyfriedchken@gmail.com</a>
+        <a href="https://maps.google.com/?q=123+Flavor+St"><ion-icon name="location-outline"></ion-icon>123 Flavor St</a>
+        <a href="#"><ion-icon name="time-outline"></ion-icon>11am – 2am Daily</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Crispy Fried Chicken. All rights reserved.</p>
+      <p>Made with care for great food.</p>
+    </div>
+  </footer>
+
+  <script src="js/order.js"></script>
+</body>
+</html>

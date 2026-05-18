@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve a Table — Crispy Fried Chicken</title>
+  <link rel="icon" type="image/svg+xml" href="flame.svg">
+  <link rel="stylesheet" href="css/main-style.css">
+  <link rel="stylesheet" href="css/reservation.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="utility-bar">
+    <div class="utility-bar-inner">
+      <div class="utility-left">
+        <span class="utility-tag">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </span>
+        <span class="utility-tag">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </span>
+      </div>
+      <div class="utility-right">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter/X">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <ion-icon name="moon-outline" class="icon-moon"></ion-icon>
+          <ion-icon name="sunny-outline" class="icon-sun"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <ion-icon name="flame"></ion-icon>
+        CFC
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link"><ion-icon name="home-outline"></ion-icon> Home</a>
+        <a href="menu.html" class="nav-link"><ion-icon name="restaurant-outline"></ion-icon> Menu</a>
+        <a href="gallery.html" class="nav-link"><ion-icon name="images-outline"></ion-icon> Gallery</a>
+        <a href="reservation.html" class="nav-link active"><ion-icon name="calendar-outline"></ion-icon> Reservation</a>
+        <a href="order.html" class="nav-link"><ion-icon name="bag-outline"></ion-icon> Order</a>
+        <a href="about.html" class="nav-link"><ion-icon name="people-outline"></ion-icon> About</a>
+        <a href="faq.html" class="nav-link"><ion-icon name="help-circle-outline"></ion-icon> FAQ</a>
+      </div>
+      <a href="order.html" class="nav-cta">
+        <ion-icon name="bag-outline"></ion-icon>
+        Order Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="res-hero">
+    <div class="res-hero-inner">
+      <span class="res-hero-eyebrow">
+        <ion-icon name="flame-outline"></ion-icon>
+        Crispy Fried Chicken
+      </span>
+      <h1 class="res-hero-title">Reserve Your Table</h1>
+      <p class="res-hero-sub">Fine dining, private events, and unforgettable nights — all start right here.</p>
+      <div class="res-hero-stats">
+        <div class="res-stat">
+          <ion-icon name="people-outline"></ion-icon>
+          <span>Up to 200 guests</span>
+        </div>
+        <div class="res-stat-divider"></div>
+        <div class="res-stat">
+          <ion-icon name="time-outline"></ion-icon>
+          <span>Open daily 11am–2am</span>
+        </div>
+        <div class="res-stat-divider"></div>
+        <div class="res-stat">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          <span>Instant confirmation</span>
+        </div>
+      </div>
+    </div>
+    <div class="res-hero-scroll">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </section>
+
+  <!-- RESERVATION TYPE PICKER -->
+  <main class="res-main">
+    <div class="res-container">
+
+      <!-- STEP 1 — Choose Type -->
+      <section class="res-step" id="stepType">
+        <div class="step-header">
+          <span class="step-number">01</span>
+          <div>
+            <h2 class="step-title">Choose Your Experience</h2>
+            <p class="step-desc">Select the type of reservation that fits your occasion.</p>
+          </div>
+        </div>
+
+        <div class="res-type-grid">
+
+          <button class="res-type-card" data-type="dining" aria-pressed="false">
+            <div class="rtc-icon">
+              <ion-icon name="restaurant-outline"></ion-icon>
+            </div>
+            <div class="rtc-content">
+              <h3>Standard Dining</h3>
+              <p>A table for two or more — perfect for date nights, family dinners, or casual meals.</p>
+              <ul class="rtc-perks">
+                <li><ion-icon name="checkmark-outline"></ion-icon> 2–12 guests</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Full menu access</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Up to 2 hrs</li>
+              </ul>
+            </div>
+            <span class="rtc-badge">Most Popular</span>
+          </button>
+
+          <button class="res-type-card" data-type="birthday" aria-pressed="false">
+            <div class="rtc-icon">
+              <ion-icon name="gift-outline"></ion-icon>
+            </div>
+            <div class="rtc-content">
+              <h3>Birthday Celebration</h3>
+              <p>Let us make your special day unforgettable with decorations, a dedicated server, and a complimentary dessert.</p>
+              <ul class="rtc-perks">
+                <li><ion-icon name="checkmark-outline"></ion-icon> 2–30 guests</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Complimentary dessert</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Custom decorations</li>
+              </ul>
+            </div>
+          </button>
+
+          <button class="res-type-card" data-type="private" aria-pressed="false">
+            <div class="rtc-icon">
+              <ion-icon name="shield-checkmark-outline"></ion-icon>
+            </div>
+            <div class="rtc-content">
+              <h3>Private Event</h3>
+              <p>Exclusive buyout of our private dining room — ideal for corporate gatherings, milestone events, or parties.</p>
+              <ul class="rtc-perks">
+                <li><ion-icon name="checkmark-outline"></ion-icon> Up to 80 guests</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Dedicated event host</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Custom menu options</li>
+              </ul>
+            </div>
+          </button>
+
+          <button class="res-type-card" data-type="brunch" aria-pressed="false">
+            <div class="rtc-icon">
+              <ion-icon name="sunny-outline"></ion-icon>
+            </div>
+            <div class="rtc-content">
+              <h3>Weekend Brunch</h3>
+              <p>Our signature weekend brunch experience — bottomless mimosas, brunch platters, and a live DJ on Sundays.</p>
+              <ul class="rtc-perks">
+                <li><ion-icon name="checkmark-outline"></ion-icon> Sat & Sun only</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Bottomless mimosas available</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Live DJ on Sundays</li>
+              </ul>
+            </div>
+          </button>
+
+          <button class="res-type-card" data-type="latenight" aria-pressed="false">
+            <div class="rtc-icon">
+              <ion-icon name="moon-outline"></ion-icon>
+            </div>
+            <div class="rtc-content">
+              <h3>Late Night Lounge</h3>
+              <p>Reserve a VIP section in our lounge area after 10pm — the vibe shifts, the music picks up, and the cravings get serious.</p>
+              <ul class="rtc-perks">
+                <li><ion-icon name="checkmark-outline"></ion-icon> After 10pm only</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> VIP section</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Late-night menu</li>
+              </ul>
+            </div>
+          </button>
+
+          <button class="res-type-card" data-type="corporate" aria-pressed="false">
+            <div class="rtc-icon">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <div class="rtc-content">
+              <h3>Corporate Dining</h3>
+              <p>Impress your team or clients with a professional setting, private room, and full AV capabilities for presentations.</p>
+              <ul class="rtc-perks">
+                <li><ion-icon name="checkmark-outline"></ion-icon> Up to 50 guests</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> AV equipment available</li>
+                <li><ion-icon name="checkmark-outline"></ion-icon> Invoice billing</li>
+              </ul>
+            </div>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- STEP 2 — Fill Form -->
+      <section class="res-step" id="stepForm">
+        <div class="step-header">
+          <span class="step-number">02</span>
+          <div>
+            <h2 class="step-title">Your Details</h2>
+            <p class="step-desc">Fill in your reservation information below.</p>
+          </div>
+        </div>
+
+        <div class="res-form-wrap">
+          <div class="selected-type-banner" id="selectedTypeBanner">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span id="selectedTypeLabel">No experience selected yet — choose one above.</span>
+          </div>
+
+          <form id="reservationForm" novalidate>
+
+            <!-- Personal Info -->
+            <fieldset class="form-section">
+              <legend class="form-section-title">
+                <ion-icon name="person-outline"></ion-icon>
+                Personal Information
+              </legend>
+              <div class="form-row two">
+                <div class="form-group">
+                  <label for="firstName">First Name <span class="req">*</span></label>
+                  <input type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
+                  <span class="field-error" id="err-firstName"></span>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name <span class="req">*</span></label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Doe" required autocomplete="family-name">
+                  <span class="field-error" id="err-lastName"></span>
+                </div>
+              </div>
+              <div class="form-row two">
+                <div class="form-group">
+                  <label for="email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="john@example.com" required autocomplete="email">
+                  <span class="field-error" id="err-email"></span>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number <span class="req">*</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required autocomplete="tel">
+                  <span class="field-error" id="err-phone"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Reservation Details -->
+            <fieldset class="form-section">
+              <legend class="form-section-title">
+                <ion-icon name="calendar-outline"></ion-icon>
+                Reservation Details
+              </legend>
+              <div class="form-row three">
+                <div class="form-group">
+                  <label for="resDate">Date <span class="req">*</span></label>
+                  <input type="date" id="resDate" name="resDate" required>
+                  <span class="field-error" id="err-resDate"></span>
+                </div>
+                <div class="form-group">
+                  <label for="resTime">Preferred Time <span class="req">*</span></label>
+                  <select id="resTime" name="resTime" required>
+                    <option value="">— Select —</option>
+                    <option>11:00 AM</option>
+                    <option>11:30 AM</option>
+                    <option>12:00 PM</option>
+                    <option>12:30 PM</option>
+                    <option>1:00 PM</option>
+                    <option>1:30 PM</option>
+                    <option>2:00 PM</option>
+                    <option>2:30 PM</option>
+                    <option>3:00 PM</option>
+                    <option>3:30 PM</option>
+                    <option>4:00 PM</option>
+                    <option>4:30 PM</option>
+                    <option>5:00 PM</option>
+                    <option>5:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                    <option>9:00 PM</option>
+                    <option>9:30 PM</option>
+                    <option>10:00 PM</option>
+                    <option>10:30 PM</option>
+                    <option>11:00 PM</option>
+                    <option>11:30 PM</option>
+                    <option>12:00 AM</option>
+                    <option>12:30 AM</option>
+                    <option>1:00 AM</option>
+                  </select>
+                  <span class="field-error" id="err-resTime"></span>
+                </div>
+                <div class="form-group">
+                  <label for="guests">Number of Guests <span class="req">*</span></label>
+                  <select id="guests" name="guests" required>
+                    <option value="">— Select —</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option value="13-20">13 – 20</option>
+                    <option value="21-50">21 – 50</option>
+                    <option value="51-80">51 – 80</option>
+                    <option value="81+">81+</option>
+                  </select>
+                  <span class="field-error" id="err-guests"></span>
+                </div>
+              </div>
+
+              <!-- Conditional: Birthday Name -->
+              <div class="form-row one conditional-field" id="field-birthdayName" style="display:none">
+                <div class="form-group">
+                  <label for="birthdayName">Birthday Person's Name <span class="req">*</span></label>
+                  <input type="text" id="birthdayName" name="birthdayName" placeholder="Who are we celebrating?">
+                </div>
+              </div>
+
+              <!-- Conditional: Event Name (Corporate / Private) -->
+              <div class="form-row one conditional-field" id="field-eventName" style="display:none">
+                <div class="form-group">
+                  <label for="eventName">Event / Company Name <span class="req">*</span></label>
+                  <input type="text" id="eventName" name="eventName" placeholder="e.g. Smith & Co. Q4 Dinner">
+                </div>
+              </div>
+
+              <!-- Conditional: AV Requirements (Corporate) -->
+              <div class="form-row one conditional-field" id="field-avReqs" style="display:none">
+                <div class="form-group">
+                  <label for="avReqs">AV / Equipment Requirements</label>
+                  <input type="text" id="avReqs" name="avReqs" placeholder="e.g. projector, microphone, screen">
+                </div>
+              </div>
+
+              <!-- Dietary / Special Requests -->
+              <div class="form-row one">
+                <div class="form-group">
+                  <label>Dietary Requirements</label>
+                  <div class="checkbox-row">
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="dietary" value="Vegetarian"> Vegetarian
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="dietary" value="Vegan"> Vegan
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="dietary" value="Gluten-Free"> Gluten-Free
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="dietary" value="Nut Allergy"> Nut Allergy
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="dietary" value="Halal"> Halal
+                    </label>
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="dietary" value="Kosher"> Kosher
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row one">
+                <div class="form-group">
+                  <label for="specialRequests">Special Requests</label>
+                  <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Anything you'd like us to know — seating preferences, accessibility needs, surprises, or special arrangements..."></textarea>
+                </div>
+              </div>
+
+              <!-- Seating preference -->
+              <div class="form-row one">
+                <div class="form-group">
+                  <label>Seating Preference</label>
+                  <div class="radio-row">
+                    <label class="radio-label">
+                      <input type="radio" name="seating" value="Indoor"> 
+                      <span><ion-icon name="business-outline"></ion-icon> Indoor</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="seating" value="Outdoor">
+                      <span><ion-icon name="leaf-outline"></ion-icon> Outdoor (Patio)</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="seating" value="Bar">
+                      <span><ion-icon name="wine-outline"></ion-icon> Bar Area</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="seating" value="No preference" checked>
+                      <span><ion-icon name="shuffle-outline"></ion-icon> No Preference</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </fieldset>
+
+            <!-- How did you hear -->
+            <fieldset class="form-section">
+              <legend class="form-section-title">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+                One Last Thing
+              </legend>
+              <div class="form-row two">
+                <div class="form-group">
+                  <label for="heardFrom">How did you hear about us?</label>
+                  <select id="heardFrom" name="heardFrom">
+                    <option value="">— Select —</option>
+                    <option>Instagram</option>
+                    <option>TikTok</option>
+                    <option>Facebook</option>
+                    <option>Google Search</option>
+                    <option>Friend / Family</option>
+                    <option>Walked By</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="occasion">Occasion (optional)</label>
+                  <input type="text" id="occasion" name="occasion" placeholder="e.g. Anniversary, Graduation, Business Dinner">
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Policy notice -->
+            <div class="res-policy">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <p>Reservations are held for <strong>15 minutes</strong> past the booked time. A confirmation email will be sent to you shortly after submitting. For same-day large-party bookings, please call us at <strong>(555) 123-4567</strong>.</p>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-submit-row">
+              <button type="submit" class="btn-submit" id="submitBtn">
+                <span class="btn-submit-inner" id="submitBtnInner">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Confirm Reservation
+                </span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-box">
+      <div class="modal-icon-wrap">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </div>
+      <h2 class="modal-title">You're all set!</h2>
+      <p class="modal-body" id="modalBody">Your reservation has been confirmed and a personalized email is on its way to you.</p>
+      <div class="modal-details" id="modalDetails"></div>
+      <div class="modal-actions">
+        <a href="index.html" class="btn btn-primary">
+          <ion-icon name="home-outline"></ion-icon>
+          Back to Home
+        </a>
+        <button class="btn btn-outline-dark" id="closeModal">
+          <ion-icon name="add-outline"></ion-icon>
+          New Reservation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <ion-icon name="flame"></ion-icon>
+          <span>Crispy Fried Chicken</span>
+        </div>
+        <p>Fine dining meets bold flavor. Every meal is a celebration.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <ion-icon name="logo-tiktok"></ion-icon>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reservation.html">Reservation</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Experience</h4>
+        <a href="order.html">Online Order</a>
+        <a href="about.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="reservation.html">Private Events</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Contact</h4>
+        <a href="tel:5551234567">
+          <ion-icon name="call-outline"></ion-icon>
+          (555) 123-4567
+        </a>
+        <a href="mailto:crispyfriedchken@gmail.com">
+          <ion-icon name="mail-outline"></ion-icon>
+          crispyfriedchken@gmail.com
+        </a>
+        <a href="#">
+          <ion-icon name="location-outline"></ion-icon>
+          123 Flavor St, Party City
+        </a>
+        <a href="#">
+          <ion-icon name="time-outline"></ion-icon>
+          Mon–Sun: 11am – 2am
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&#169; 2025 Crispy Fried Chicken &middot; Fine Dining &amp; Private Events</p>
+      <p>Made with <ion-icon name="heart" style="color:var(--red)"></ion-icon> and hot oil</p>
+    </div>
+  </footer>
+
+  <script src="js/reservation.js"></script>
+</body>
+</html>
