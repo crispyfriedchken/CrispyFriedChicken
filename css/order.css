@@ -1,3 +1,101 @@
+/* ============================================================
+   CRISPY FRIED CHICKEN — order.css
+   Matches home.css tokens, fonts, and visual language exactly.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ══ TOKENS (identical to home.css) ══════════════════════════ */
+:root {
+  --red:        #C8102E;
+  --red-dark:   #9B0B22;
+  --red-light:  #E8304A;
+  --red-xlight: #FF6B81;
+  --red-glow:   rgba(200,16,46,0.18);
+  --red-soft:   rgba(200,16,46,0.07);
+
+  --bg:        #FAFAF8;
+  --bg-2:      #FFFFFF;
+  --bg-3:      #F4F1EC;
+  --surface:   #FFFFFF;
+  --surface-2: #F8F6F2;
+
+  --text-1:   #161210;
+  --text-2:   #5A4A3F;
+  --text-3:   #9A8070;
+  --text-inv: #FFFFFF;
+
+  --border:         rgba(200,16,46,0.10);
+  --border-2:       rgba(200,16,46,0.20);
+  --border-neutral: rgba(0,0,0,0.07);
+
+  --shadow-xs:  0 1px 4px rgba(20,10,5,0.06);
+  --shadow-sm:  0 2px 14px rgba(20,10,5,0.09);
+  --shadow-md:  0 8px 36px rgba(20,10,5,0.13);
+  --shadow-lg:  0 20px 64px rgba(20,10,5,0.18);
+  --shadow-red: 0 8px 32px rgba(200,16,46,0.22);
+
+  --grad-hero:    linear-gradient(145deg,#B5091F 0%,#C8102E 40%,#E8304A 75%,#FF6B81 100%);
+  --grad-body:    linear-gradient(180deg,#fff8f5 0%,#faf8f4 50%,#f4f0e8 100%);
+  --grad-section: linear-gradient(135deg,rgba(200,16,46,0.04) 0%,rgba(255,255,255,0) 60%);
+
+  --r-sm:  8px;
+  --r:     12px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-2xl: 40px;
+
+  --font-d: 'Playfair Display', Georgia, serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+
+  --utility-h: 38px;
+  --nav-h:     68px;
+  --max-w:     1240px;
+
+  --ease: cubic-bezier(.4,0,.2,1);
+  --t:    .22s;
+}
+
+[data-theme="dark"] {
+  --bg:        #100A08;
+  --bg-2:      #1A110D;
+  --bg-3:      #221610;
+  --surface:   #1E1410;
+  --surface-2: #271A14;
+
+  --text-1:   #F5EDE8;
+  --text-2:   #B09080;
+  --text-3:   #705040;
+  --text-inv: #F5EDE8;
+
+  --border:         rgba(200,16,46,0.14);
+  --border-2:       rgba(200,16,46,0.28);
+  --border-neutral: rgba(255,255,255,0.06);
+
+  --grad-body:    linear-gradient(180deg,#120C09 0%,#100A08 60%,#0E0806 100%);
+  --grad-section: linear-gradient(135deg,rgba(200,16,46,0.07) 0%,transparent 60%);
+  --shadow-md:    0 8px 36px rgba(0,0,0,0.45);
+  --shadow-lg:    0 20px 64px rgba(0,0,0,0.55);
+}
+
+/* ══ RESET ════════════════════════════════════════════════════ */
+*, ::before, ::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 15px; }
+body {
+  font-family: var(--font-b);
+  background: var(--bg);
+  background-image: var(--grad-body);
+  background-attachment: fixed;
+  color: var(--text-1);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+img { display: block; max-width: 100%; }
+a   { text-decoration: none; color: inherit; }
+ion-icon { vertical-align: middle; pointer-events: none; }
+.hidden { display: none !important; }
 
 /* ══ UTILITY BAR ══════════════════════════════════════════════ */
 .utility-bar {
