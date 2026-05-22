@@ -28,8 +28,7 @@ if (themBtn) {
   });
 }
 
-/* 
-   NAV*/
+/*NAV HAMBURGER */
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 

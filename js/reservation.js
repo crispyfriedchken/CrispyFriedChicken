@@ -213,7 +213,7 @@ function autoFillForm() {
     document.body.style.outline = '';
   }, 300);
 
-  console.log('🍗 Form auto-filled with test data');
+  console.log(' Form auto-filled with test data');
 }
 /*STATE*/
 let selectedType = null;

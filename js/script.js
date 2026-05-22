@@ -253,3 +253,197 @@ document.querySelectorAll(
   observer.observe(el);
 });
 
+/* STAR RATING 
+   - Click once  → full star (and all before it)
+   - Click again on same full star → half star
+   - Click again on same half star → clear (back to 0)
+   - Half only applies to the last star in the selection
+    */
+(function initRating() {
+  const starsGroup  = document.getElementById('ratingStars');
+  if (!starsGroup) return;
+
+  const starBtns    = Array.from(starsGroup.querySelectorAll('.star-btn'));
+  const ratingLabel = document.getElementById('ratingLabel');
+  const formWrap    = document.getElementById('ratingFormWrap');
+  const textarea    = document.getElementById('ratingText');
+  const charCount   = document.getElementById('ratingCharCount');
+  const submitBtn   = document.getElementById('ratingSubmit');
+  const toast       = document.getElementById('ratingToast');
+  const toastTitle  = document.getElementById('ratingToastTitle');
+  const toastSub    = document.getElementById('ratingToastSub');
+  const toastClose  = document.getElementById('ratingToastClose');
+
+  // State: null = nothing set, X = full X, X.5 = half X
+  let currentRating = null;
+  let toastTimer    = null;
+
+const labels = {
+  0.5: 'Room to grow.',
+  1:   'We hear you.',
+  1.5: 'We can do better.',
+  2:   'We can do better.',
+  2.5: 'Getting there.',
+  3:   'Not bad at all.',
+  3.5: 'Pretty good!',
+  4:   'Almost perfect.',
+  4.5: 'So close!',
+  5:   'You made our night!',
+};
+
+  function renderStars(hoverIndex, hoverHalf) {
+    // hoverIndex: 1-5 or null, hoverHalf: bool
+    const display = hoverIndex !== null
+      ? (hoverHalf ? hoverIndex - 0.5 : hoverIndex)
+      : currentRating;
+
+    starBtns.forEach((btn, i) => {
+      const pos = i + 1; // 1-based
+      btn.classList.remove('state-full', 'state-half', 'is-hovered');
+
+      if (display === null) return;
+
+      if (pos < Math.ceil(display)) {
+        btn.classList.add('state-full');
+      } else if (pos === Math.ceil(display)) {
+        if (display % 1 === 0.5) {
+          btn.classList.add('state-half');
+        } else {
+          btn.classList.add('state-full');
+        }
+      }
+
+      if (hoverIndex !== null && pos <= hoverIndex) {
+        btn.classList.add('is-hovered');
+      }
+    });
+  }
+
+  function updateLabel(rating) {
+    if (rating === null) {
+      ratingLabel.textContent = 'Tap a star to rate';
+      ratingLabel.classList.remove('has-value');
+    } else {
+      ratingLabel.textContent = labels[rating] || `${rating} stars`;
+      ratingLabel.classList.add('has-value');
+    }
+  }
+
+  // Hover handling
+  starsGroup.addEventListener('mousemove', e => {
+    const btn = e.target.closest('.star-btn');
+    if (!btn) return;
+    const idx  = parseInt(btn.dataset.index, 10);
+    const rect = btn.getBoundingClientRect();
+    const half = (e.clientX - rect.left) < rect.width / 2;
+    renderStars(idx, half);
+
+    const hovered = half ? idx - 0.5 : idx;
+    updateLabel(hovered);
+  });
+
+  starsGroup.addEventListener('mouseleave', () => {
+    renderStars(null, false);
+    updateLabel(currentRating);
+  });
+
+  // Click handling
+  starsGroup.addEventListener('click', e => {
+    const btn = e.target.closest('.star-btn');
+    if (!btn) return;
+    const idx  = parseInt(btn.dataset.index, 10);
+    const rect = btn.getBoundingClientRect();
+    const half = (e.clientX - rect.left) < rect.width / 2;
+    const clicked = half ? idx - 0.5 : idx;
+
+    // Toggle logic
+    if (currentRating === clicked) {
+      // Same full → half, same half → clear
+      if (clicked % 1 === 0) {
+        currentRating = clicked - 0.5;
+      } else {
+        currentRating = null;
+      }
+    } else {
+      currentRating = clicked;
+    }
+
+    renderStars(null, false);
+    updateLabel(currentRating);
+
+    // Pop animation on the target star
+    btn.classList.remove('pop');
+    void btn.offsetWidth; // reflow
+    btn.classList.add('pop');
+    btn.addEventListener('animationend', () => btn.classList.remove('pop'), { once: true });
+
+    // Burst
+    const burst = document.createElement('span');
+    burst.className = 'star-burst';
+    btn.style.position = 'relative';
+    btn.appendChild(burst);
+    burst.addEventListener('animationend', () => burst.remove());
+
+    // Show / hide form
+    if (currentRating !== null) {
+      formWrap.classList.add('visible');
+    } else {
+      formWrap.classList.remove('visible');
+    }
+  });
+
+  // Char count
+  if (textarea) {
+    textarea.addEventListener('input', () => {
+      const len = textarea.value.length;
+      charCount.textContent = `${len} / 500`;
+      charCount.classList.toggle('near-limit', len >= 450);
+    });
+  }
+
+  // Submit
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      if (currentRating === null) return;
+
+      const name   = document.getElementById('ratingName')?.value.trim();
+      const review = textarea?.value.trim();
+
+      // Build toast message
+      const who    = name || 'Anonymous';
+      const stars  = currentRating === 1 ? '1 star' : `${currentRating} stars`;
+      toastTitle.textContent = `${who} — ${stars}`;
+      toastSub.textContent   = review
+        ? `"${review.slice(0, 80)}${review.length > 80 ? '…' : ''}"`
+        : 'Your rating has been noted. Thank you!';
+
+      showToast();
+
+      // Reset
+      currentRating = null;
+      renderStars(null, false);
+      updateLabel(null);
+      if (textarea)   textarea.value = '';
+      if (charCount)  charCount.textContent = '0 / 500';
+      charCount?.classList.remove('near-limit');
+      document.getElementById('ratingName').value = '';
+      formWrap.classList.remove('visible');
+    });
+  }
+
+  // Toast
+  function showToast() {
+    clearTimeout(toastTimer);
+    toast.classList.add('show');
+    toastTimer = setTimeout(hideToast, 5500);
+  }
+
+  function hideToast() {
+    toast.classList.remove('show');
+  }
+
+  if (toastClose) {
+    toastClose.addEventListener('click', hideToast);
+  }
+})();
+
