@@ -1,5 +1,5 @@
 
-/* ── THEME ───────────────────────────────────────────────── */
+/*THEME*/
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -13,7 +13,7 @@ if (themBtn) {
   });
 }
 
-/* ── CLOCK (updates every 30s) ───────────────────────────── */
+/*CLOCK (updates every 30s) */
 function tick() {
   const now = new Date();
   const h   = String(now.getHours()).padStart(2, '0');
@@ -29,7 +29,7 @@ function tick() {
 tick();
 setInterval(tick, 30000);
 
-/* ── OPEN/CLOSED STATUS ──────────────────────────────────── */
+/*OPEN/CLOSED STATUS*/
 (function status() {
   const h    = new Date().getHours();
   const open = h >= 11 || h < 2;
@@ -61,7 +61,7 @@ setInterval(tick, 30000);
   if (statusText && !open) statusText.textContent = 'Closed Now';
 })();
 
-/* ── GREETING ────────────────────────────────────────────── */
+/*GREETING*/
 (function greet() {
   const h = new Date().getHours();
 
@@ -85,7 +85,7 @@ setInterval(tick, 30000);
   if (welcomeHead) welcomeHead.textContent = match.welcome;
 })();
 
-/* ── NAV HAMBURGER ───────────────────────────────────────── */
+/* NAV HAMBURGER*/
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -107,7 +107,7 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ── NAV SCROLL SHADOW ───────────────────────────────────── */
+/*NAV SCROLL SHADOW*/
 const mainNav = document.getElementById('mainNav');
 if (mainNav) {
   window.addEventListener('scroll', () => {
@@ -117,7 +117,7 @@ if (mainNav) {
   }, { passive: true });
 }
 
-/* ── COLLAPSIBLES ────────────────────────────────────────── */
+/*COLLAPSIBLES*/
 document.querySelectorAll('.collapsible-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const collapsible = btn.closest('.collapsible');
@@ -140,7 +140,7 @@ document.querySelectorAll('.collapsible-trigger').forEach(btn => {
   });
 });
 
-/* ── SCROLL ARROWS ───────────────────────────────────────── */
+/*SCROLL ARROWS*/
 document.querySelectorAll('.scroll-arrow').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.dataset.target;
@@ -151,7 +151,7 @@ document.querySelectorAll('.scroll-arrow').forEach(btn => {
   });
 });
 
-/* ── DRAG TO SCROLL ──────────────────────────────────────── */
+/*DRAG TO SCROLL*/
 document.querySelectorAll('.food-items-track, .food-carousel').forEach(el => {
   let isDown = false;
   let startX, scrollLeft;
@@ -175,7 +175,7 @@ document.querySelectorAll('.food-items-track, .food-carousel').forEach(el => {
   });
 });
 
-/* ── GALLERY LIGHTBOX ────────────────────────────────────── */
+/* GALLERY LIGHTBOX */
 const lightbox   = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxCap = document.getElementById('lightboxCaption');
@@ -213,7 +213,7 @@ if (lightbox) {
   });
 }
 
-/* ── ACTIVE NAV LINK ─────────────────────────────────────── */
+/*ACTIVE NAV LINK*/
 document.querySelectorAll('.nav-link').forEach(a => {
   a.addEventListener('click', () => {
     document.querySelectorAll('.nav-link').forEach(x => x.classList.remove('active'));
@@ -221,7 +221,7 @@ document.querySelectorAll('.nav-link').forEach(a => {
   });
 });
 
-/* ── TICKER PAUSE ON HOVER ───────────────────────────────── */
+/* TICKER PAUSE ON HOVER  */
 const ticker = document.getElementById('featuredTicker');
 if (ticker) {
   ticker.addEventListener('mouseenter', () => {
@@ -232,7 +232,7 @@ if (ticker) {
   });
 }
 
-/* ── INTERSECTION OBSERVER — fade in sections ────────────── */
+/*INTERSECTION OBSERVER — fade in sections  */
 const observerOpts = { threshold: 0.12 };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -252,3 +252,4 @@ document.querySelectorAll(
   el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
   observer.observe(el);
 });
+

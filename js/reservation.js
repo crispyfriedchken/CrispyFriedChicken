@@ -22,12 +22,12 @@ const EMAILJS_PUBLIC_KEY  = 'u0SjY75BD6MDTY717';      // ← replace
 const EMAILJS_SERVICE_ID  = 'service_7oqbqab';      // ← replace
 const EMAILJS_TEMPLATE_ID = 'template_29qh54e';     // ← replace
 
-/* ── INIT EMAILJS ────────────────────────────────────────────── */
+/*INIT EMAILJS*/
 (function () {
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 })();
 
-/* ── THEME TOGGLE ────────────────────────────────────────────── */
+/*THEME TOGGLE */
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -41,7 +41,7 @@ if (themBtn) {
   });
 }
 
-/* ── NAV HAMBURGER ───────────────────────────────────────────── */
+/*NAV HAMBURGER */
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -62,7 +62,7 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ── NAV SCROLL SHADOW ───────────────────────────────────────── */
+/*NAV SCROLL SHADOW*/
 const mainNav = document.getElementById('mainNav');
 if (mainNav) {
   window.addEventListener('scroll', () => {
@@ -72,7 +72,7 @@ if (mainNav) {
   }, { passive: true });
 }
 
-/* ── RESERVATION TYPE CONFIG ─────────────────────────────────── */
+/*RESERVATION TYPE CONFIG */
 const TYPE_CONFIG = {
   dining: {
     label:       'Standard Dining',
@@ -129,7 +129,7 @@ const TYPE_CONFIG = {
     conditionals: ['field-eventName', 'field-avReqs'],
   },
 };
-/* ── DEV AUTO-FILL (Press 0 three times: 000) ─────────────── */
+/* DEV AUTO-FILL (Press 0 three times: 000)*/
 let zeroPressCount = 0;
 let zeroPressTimer = null;
 
@@ -148,7 +148,7 @@ document.addEventListener('keydown', (e) => {
       e.preventDefault();
       autoFillForm();
       zeroPressCount = 0;
-      console.log('✅ Auto-fill activated');
+      console.log('Auto-fill activated');
     } else {
       // Reset after 1 second if not completed
       zeroPressTimer = setTimeout(() => {
@@ -215,10 +215,10 @@ function autoFillForm() {
 
   console.log('🍗 Form auto-filled with test data');
 }
-/* ── STATE ───────────────────────────────────────────────────── */
+/*STATE*/
 let selectedType = null;
 
-/* ── TYPE CARD SELECTION ─────────────────────────────────────── */
+/*TYPE CARD SELECTION*/
 const typeCards   = document.querySelectorAll('.res-type-card');
 const typeBanner  = document.getElementById('selectedTypeBanner');
 const typeLabel   = document.getElementById('selectedTypeLabel');
@@ -341,7 +341,7 @@ form.addEventListener('submit', async e => {
     const val = el.value;
     if (val === undefined || val === null) return '';
     if (typeof val === 'object') {
-      console.error('⚠️ Object found in field:', id, val);
+      console.error('Object found in field:', id, val);
       return '';
     }
     return String(val).trim();
@@ -385,15 +385,15 @@ form.addEventListener('submit', async e => {
     occasion:          getStr('occasion'),
     confirmation_code: String(confirmationCode).trim(),
     heard_from:        getStr('heardFrom'),
-    // ⚠️ IMPORTANT: Do NOT include message_body here
+    // IMPORTANT: Do NOT include message_body here
   };
 
   // DEBUG: Verify no objects are being sent
-  console.log('📤 Sending to EmailJS:', payload);
+  console.log('Sending to EmailJS:', payload);
   
   for (const [key, val] of Object.entries(payload)) {
     if (typeof val !== 'string') {
-      console.error(`❌ ERROR: ${key} is not a string! Type: ${typeof val}`, val);
+      console.error(` ERROR: ${key} is not a string! Type: ${typeof val}`, val);
       alert(`Error: ${key} is not a valid string. Check console.`);
       submitBtn.disabled = false;
       submitInner.innerHTML = '<ion-icon name="calendar-outline"></ion-icon> Confirm Reservation';
@@ -430,7 +430,7 @@ form.addEventListener('submit', async e => {
   }
 });
 
-/* ── SUCCESS MODAL ───────────────────────────────────────────── */
+/*SUCCESS MODAL*/
 function showSuccessModal(params, cfg) {
   const modal = document.getElementById('successModal');
   const modalBody = document.getElementById('modalBody');
@@ -467,7 +467,7 @@ function showSuccessModal(params, cfg) {
   document.body.style.overflow = 'hidden';
 }
 
-/* ── CLOSE MODAL ─────────────────────────────────────────────── */
+/*CLOSE MODAL*/
 document.getElementById('closeModal').addEventListener('click', () => {
   document.getElementById('successModal').classList.remove('active');
   document.body.style.overflow = '';
@@ -482,14 +482,14 @@ document.getElementById('closeModal').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-/* ── SET DATE MIN (today) ────────────────────────────────────── */
+/*SET DATE MIN (today)*/
 const dateInput = document.getElementById('resDate');
 if (dateInput) {
   const today = new Date().toISOString().split('T')[0];
   dateInput.setAttribute('min', today);
 }
 
-/* ── FADE IN ON SCROLL ───────────────────────────────────────── */
+/*FADE IN ON SCROLL*/
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

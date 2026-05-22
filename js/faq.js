@@ -1,8 +1,5 @@
-/* ============================================================
-   CRISPY FRIED CHICKEN — fa.js
-   ============================================================ */
 
-/* ── THEME TOGGLE ────────────────────────────────────────────── */
+/*THEME TOGGLE*/
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -15,7 +12,7 @@ if (themBtn) {
     localStorage.setItem('cfc-theme', next);
   });
 }
-/* ── NAV HAMBURGER ───────────────────────────────────────── */
+/*NAV HAMBURGER*/
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -37,15 +34,15 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ── COLLAPSIBLES (FAQ & ACTIVITIES) ─────────────────────── */
+/* COLLAPSIBLES (FAQ & ACTIVITIES)*/
 document.querySelectorAll('.collapsible-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const collapsible = btn.closest('.collapsible');
     const body        = collapsible.querySelector('.collapsible-body');
     const isOpen      = body.classList.contains('open');
 
-    // Optional: Close all others when one opens (Accordion style)
-    // Remove this block if you want multiple FAQs open at once
+    // Optional: Close all others when one opens
+    // Paricia Remove this if you want multiple FAQs open at once 
     document.querySelectorAll('.collapsible-body.open').forEach(b => {
       b.classList.remove('open');
       b.closest('.collapsible')

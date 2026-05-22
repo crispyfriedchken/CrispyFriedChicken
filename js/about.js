@@ -1,5 +1,5 @@
 
-/* ── THEME ───────────────────────────────────────────────── */
+/*THEME */
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -13,7 +13,7 @@ if (themBtn) {
   });
 }
 
-/* ── NAV HAMBURGER ───────────────────────────────────────── */
+/*NAV HAMBURGER :) */
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -35,7 +35,7 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ── NAV SCROLL SHADOW ───────────────────────────────────── */
+/* NAV SCROLL SHADOW stop removing the last } bro*/
 const mainNav = document.getElementById('mainNav');
 if (mainNav) {
   window.addEventListener('scroll', () => {
@@ -45,7 +45,7 @@ if (mainNav) {
   }, { passive: true });
 }
 
-/* ── ACTIVE NAV LINK ─────────────────────────────────────── */
+/*ACTIVE NAV LINK */
 document.querySelectorAll('.nav-link').forEach(a => {
   a.addEventListener('click', () => {
     document.querySelectorAll('.nav-link').forEach(x => x.classList.remove('active'));
@@ -53,7 +53,7 @@ document.querySelectorAll('.nav-link').forEach(a => {
   });
 });
 
-/* ── HERO SCROLL HINT (click to scroll past hero) ────────── */
+/*HERO SCROLL HINT (click to scroll past hero) */
 const heroScroll = document.querySelector('.about-hero-scroll');
 if (heroScroll) {
   heroScroll.addEventListener('click', () => {
@@ -62,7 +62,7 @@ if (heroScroll) {
   });
 }
 
-/* ── SECTION FADE-IN (sections as a whole) ───────────────── */
+/*SECTION FADE-IN (sections as a whole)*/
 const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -76,7 +76,7 @@ document.querySelectorAll(
   '.about-intro, .about-stats, .about-history, .about-mission, .about-team, .cta-banner'
 ).forEach(el => sectionObserver.observe(el));
 
-/* ── TIMELINE STAGGERED SLIDE-IN ─────────────────────────── */
+/*TIMELINE STAGGERED SLIDE-IN*/
 const timelineObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -99,7 +99,7 @@ timelineStyle.textContent = `
 `;
 document.head.appendChild(timelineStyle);
 
-/* ── VALUE & TEAM CARD STAGGERED POP-UP ─────────────────── */
+/*VALUE & TEAM CARD STAGGERED POP-UP*/
 const cardObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -136,14 +136,14 @@ cardStyle.textContent = `
 `;
 document.head.appendChild(cardStyle);
 
-/* ── STATS COUNTER ANIMATION ─────────────────────────────── */
+/*STATS COUNTER ANIMATION*/
 function animateCounter(el, target, suffix, duration) {
   duration = duration || 1400;
   const start = performance.now();
 
   (function step(now) {
     const pct     = Math.min((now - start) / duration, 1);
-    const eased   = 1 - Math.pow(1 - pct, 4); // ease-out quart
+    const eased   = 1 - Math.pow(1 - pct, 4); // ease-out use the yt link and change if its too fast
     const current = eased * target;
 
     // For values >= 1000 show with K abbreviation while counting
@@ -166,7 +166,7 @@ if (statsSection) {
         statsAnimated = true;
 
         document.querySelectorAll('.about-stat-num').forEach(el => {
-          const raw    = el.textContent.trim();           // e.g. "200K+", "15+"
+          const raw    = el.textContent.trim();           // e.g. "200K+", "15+" count up vales on banner section
           const suffix = raw.replace(/[\d.]/g, '');       // "+", "K+", etc.
           const numStr = raw.replace(/[^0-9.]/g, '');     // "200", "15"
           const value  = parseFloat(numStr);

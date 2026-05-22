@@ -545,7 +545,8 @@
     opacity: 0.75;
 }
 
-.mc-add {
+.mc-add { /* Keep hidden , no JS to move it over to order summary */
+    visibility: hidden;
     width: 30px;
     height: 30px;
     border-radius: 50%;

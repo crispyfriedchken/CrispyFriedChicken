@@ -1,16 +1,9 @@
-/* ============================================================
-   CRISPY FRIED CHICKEN — order.js
-   ============================================================ */
 
-/* ── CONFIG ───────────────────────────────────────────────────
-   Replace these with the EmailJS credentials.
-   Sign up free at https://www.emailjs.com/
-   ------------------------------------------------------------ */
 const EMAILJS_SERVICE_ID  = 'service_7d9mo9d';   // e.g. 'service_abc123'
 const EMAILJS_TEMPLATE_ID = 'template_161lubv';  // e.g. 'template_xyz789'
 const EMAILJS_PUBLIC_KEY  = 'RV6ly1-QS908iTEo-';   // e.g. 'abcDEFghiJKL'
 
-/* ── DELIVERY FEES (USD) ──────────────────────────────────── */
+/* ── DELIVERY FEES (USD) ] */
 const DELIVERY_FEES = {
   '':         0,
   'local':    2.50,
@@ -19,12 +12,9 @@ const DELIVERY_FEES = {
   'overseas': 18.00,
 };
 
-/* ── COOLING SURCHARGE ────────────────────────────────────── */
+/*COOLING SURCHARGE*/
 const COOLING_FEE = 2.00; // applied once per order if any cooling item exists
 
-/* ════════════════════════════════════════════════════════════
-   THEME TOGGLE
-   ════════════════════════════════════════════════════════════ */
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -38,9 +28,8 @@ if (themBtn) {
   });
 }
 
-/* ════════════════════════════════════════════════════════════
-   NAV
-   ════════════════════════════════════════════════════════════ */
+/* 
+   NAV*/
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -70,9 +59,7 @@ if (mainNav) {
   }, { passive: true });
 }
 
-/* ════════════════════════════════════════════════════════════
-   CART STATE
-   ════════════════════════════════════════════════════════════ */
+/* CART STATE*/
 let cart = []; // [{ id, name, price, qty, cooling }]
 
 function cartFind(id) { return cart.find(i => i.id === id); }
@@ -97,7 +84,7 @@ function cartChangeQty(id, delta) {
   renderCart();
 }
 
-/* ── PRICING ──────────────────────────────────────────────── */
+/* PRICING */
 function calcSubtotal() {
   return cart.reduce((s, i) => s + i.price * i.qty, 0);
 }
@@ -118,9 +105,8 @@ function calcGrand() {
 }
 function fmt(n) { return '$' + n.toFixed(2); }
 
-/* ════════════════════════════════════════════════════════════
-   RENDER CART (sidebar)
-   ════════════════════════════════════════════════════════════ */
+/*
+   RENDER CART (sidebar)*/
 function renderCart() {
   const itemsEl   = document.getElementById('cartItems');
   const emptyEl   = document.getElementById('cartEmpty');
@@ -198,7 +184,7 @@ function renderCart() {
   updateMobileBar();
 }
 
-/* ── MOBILE BAR ───────────────────────────────────────────── */
+/*MOBILE BAR */
 function updateMobileBar() {
   const bar = document.getElementById('mobileCartBar');
   if (!bar) return;
@@ -207,7 +193,7 @@ function updateMobileBar() {
   document.getElementById('mcbTotal').textContent = fmt(calcGrand());
 }
 
-/* ── BADGE ANIMATION ──────────────────────────────────────── */
+/* BADGE ANIMATION*/
 function animateBadge() {
   const badge = document.getElementById('cartCount');
   if (!badge) return;
@@ -215,14 +201,12 @@ function animateBadge() {
   setTimeout(() => { badge.style.transform = ''; }, 250);
 }
 
-/* ── ESCAPE HTML ──────────────────────────────────────────── */
+/*ESCAPE HTML*/
 function escHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-/* ════════════════════════════════════════════════════════════
-   ADD TO CART BUTTONS
-   ════════════════════════════════════════════════════════════ */
+/* ADD TO CART BUTTONS*/
 document.querySelectorAll('.menu-item').forEach(item => {
   const btn = item.querySelector('.add-btn');
   if (!btn) return;
@@ -238,9 +222,7 @@ document.querySelectorAll('.menu-item').forEach(item => {
   });
 });
 
-/* ════════════════════════════════════════════════════════════
-   FULFILLMENT TABS
-   ════════════════════════════════════════════════════════════ */
+/*FULFILLMENT TABS*/
 function getCurrentMode() {
   const active = document.querySelector('.fulfillment-tab.active');
   return active ? active.dataset.mode : 'delivery';
@@ -260,9 +242,7 @@ document.querySelectorAll('.fulfillment-tab').forEach(tab => {
 
 document.getElementById('deliveryZone').addEventListener('change', renderCart);
 
-/* ════════════════════════════════════════════════════════════
-   FILTER CHIPS
-   ════════════════════════════════════════════════════════════ */
+/*FILTER CHIPS*/
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
@@ -279,9 +259,7 @@ document.querySelectorAll('.chip').forEach(chip => {
   });
 });
 
-/* ════════════════════════════════════════════════════════════
-   CHECKOUT MODAL
-   ════════════════════════════════════════════════════════════ */
+/*CHECKOUT MODAL*/
 const overlay      = document.getElementById('checkoutModal');
 const modalClose   = document.getElementById('modalClose');
 const step1El      = document.getElementById('step1');
@@ -451,7 +429,7 @@ async function placeOrder() {
     console.warn('EmailJS not configured — order confirmation email was not sent.', err);
   }
 
-  // ── Show confirmation ──────────────────────────────────────
+  //Show confirmation
   document.getElementById('confirmEmail').textContent   = email;
   document.getElementById('confirmOrderId').textContent = orderId;
   showStep(3);
@@ -466,9 +444,7 @@ async function placeOrder() {
 /* CLOSE CONFIRMATION */
 document.getElementById('closeConfirm').addEventListener('click', closeModal);
 
-/* ════════════════════════════════════════════════════════════
-   MOBILE CART DRAWER
-   ════════════════════════════════════════════════════════════ */
+/*MOBILE CART DRAWER */
 const cartDrawer  = document.getElementById('cartDrawer');
 const drawerOverlay = document.getElementById('cartDrawerOverlay');
 
@@ -551,12 +527,9 @@ function renderDrawer() {
   });
 }
 
-/* ════════════════════════════════════════════════════════════
-   INIT
-   ════════════════════════════════════════════════════════════ */
 renderCart();
 
-/* ── INTERSECTION OBSERVER — fade sections in ─────────────── */
+/* INTERSECTION OBSERVER — fade sections in*/
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

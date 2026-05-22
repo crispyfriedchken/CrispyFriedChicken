@@ -1,5 +1,5 @@
 
-/* ── THEME ───────────────────────────────────────────────── */
+/*THEME*/
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -13,7 +13,7 @@ if (themBtn) {
   });
 }
 
-/* ── NAV HAMBURGER ───────────────────────────────────────── */
+/*NAV HAMBURGER*/
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -35,7 +35,7 @@ if (hamburger && navLinks) {
   });
 }
 
-/* ── NAV SCROLL SHADOW ───────────────────────────────────── */
+/* NAV SCROLL SHADOW*/
 const mainNav = document.getElementById('mainNav');
 if (mainNav) {
   window.addEventListener('scroll', () => {
@@ -45,7 +45,7 @@ if (mainNav) {
   }, { passive: true });
 }
 
-/* ── CONTACT FORM (EMAILJS) ──────────────────────────────── */
+/*CONTACT FORM (EMAILJS)*/
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -118,7 +118,7 @@ tick();
 setInterval(tick, 30000);
 
 
-/* ── OPEN/CLOSED STATUS ──────────────────────────────────── */
+/*OPEN/CLOSED STATUS*/
 (function status() {
   const h    = new Date().getHours();
   const open = h >= 11 || h < 2;
@@ -139,7 +139,7 @@ setInterval(tick, 30000);
   if (statusText && !open) statusText.textContent = 'Closed Now';
 })();
 
-/* ── GREETING ────────────────────────────────────────────── */
+/*GREETING*/
 (function greet() {
   const h = new Date().getHours();
   const map = [

@@ -1,4 +1,4 @@
-const GALLERY_DATA = {
+const GALLERY_DATA = { //Cant use json files. So add media here. Dont mess up the ids
   "featured": [
     {
       "id": "feat-1",
@@ -45,7 +45,7 @@ const GALLERY_DATA = {
   ]
 };
 
-/* ── THEME ───────────────────────────────────────────────── */
+/*THEME*/
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -59,7 +59,7 @@ if (themBtn) {
   });
 }
 
-/* ── NAV ─────────────────────────────────────────────────── */
+/*NAV*/
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -344,7 +344,7 @@ if (viewGridBtn && viewMasonryBtn) {
   });
 }
 
-/* ── LIGHTBOX ────────────────────────────────────────────── */
+/*LIGHTBOX*/
 let visibleItems = [];
 let currentIndex = 0;
 
@@ -459,7 +459,7 @@ if (lightbox) {
   }, { passive: true });
 }
 
-/* ── SCROLL FADE-IN ──────────────────────────────────────── */
+/* SCROLL FADE-IN*/
 const io = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

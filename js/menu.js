@@ -1,6 +1,6 @@
 /* js/menu.js */
 
-/* ── THEME ───────────────────────────────────────────────── */
+/* THEME*/
 const html    = document.documentElement;
 const themBtn = document.getElementById('themeToggle');
 const saved   = localStorage.getItem('cfc-theme') || 'light';
@@ -12,7 +12,7 @@ themBtn.addEventListener('click', () => {
     localStorage.setItem('cfc-theme', next);
 });
 
-/* ── NAV HAMBURGER ───────────────────────────────────────── */
+/*NAV HAMBURGER*/
 const hamburger = document.getElementById('navHamburger');
 const navLinks  = document.getElementById('navLinks');
 
@@ -30,7 +30,7 @@ document.addEventListener('click', e => {
     }
 });
 
-/* ── NAV SCROLL SHADOW ───────────────────────────────────── */
+/*NAV SCROLL SHADOW  */
 const mainNav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
     mainNav.style.boxShadow = window.scrollY > 8
@@ -38,7 +38,7 @@ window.addEventListener('scroll', () => {
         : '';
 }, { passive: true });
 
-/* ── CATEGORY TABS ───────────────────────────────────────── */
+/*CATEGORY TABS  */
 const tabs     = document.querySelectorAll('.mtab');
 const sections = document.querySelectorAll('.menu-section');
 
@@ -70,7 +70,7 @@ tabs.forEach(tab => {
     });
 });
 
-/* ── DIETARY FILTERS ─────────────────────────────────────── */
+/* DIETARY FILTERS */
 const dfilts = document.querySelectorAll('.dfilt');
 
 dfilts.forEach(btn => {
@@ -84,7 +84,7 @@ dfilts.forEach(btn => {
     });
 });
 
-/* ── SEARCH ──────────────────────────────────────────────── */
+/* ── SEARCH*/
 const searchInput = document.getElementById('menuSearch');
 
 searchInput.addEventListener('input', () => {
@@ -93,7 +93,7 @@ searchInput.addEventListener('input', () => {
     filterCards(diet, q);
 });
 
-/* ── FILTER LOGIC ────────────────────────────────────────── */
+/* FILTER LOGIC*/
 function filterCards(diet, query) {
     const allCards = document.querySelectorAll('.menu-card, .side-card, .drink-card');
     let visibleCount = 0;
@@ -136,7 +136,7 @@ function checkEmpty() {
     emptyEl.classList.toggle('hidden', anyShown);
 }
 
-/* ── CLEAR FILTERS ───────────────────────────────────────── */
+/*CLEAR FILTERS*/
 document.getElementById('clearFilters').addEventListener('click', () => {
     searchInput.value = '';
     tabs.forEach(t => t.classList.remove('active'));
@@ -149,7 +149,7 @@ document.getElementById('clearFilters').addEventListener('click', () => {
     checkEmpty();
 });
 
-/* ── ADD TO ORDER FEEDBACK ───────────────────────────────── */
+/*ADD TO ORDER FEEDBACK*/
 document.querySelectorAll('.mc-add').forEach(btn => {
     btn.addEventListener('click', () => {
         const orig = btn.innerHTML;
@@ -163,7 +163,7 @@ document.querySelectorAll('.mc-add').forEach(btn => {
     });
 });
 
-/* ── SIZE SELECTOR ───────────────────────────────────────── */
+/*SIZE SELECTOR*/
 document.querySelectorAll('.sz').forEach(sz => {
     sz.addEventListener('click', () => {
         const siblings = sz.closest('.side-sizes')?.querySelectorAll('.sz');
